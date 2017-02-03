@@ -120,6 +120,11 @@ add_action( 'wp_enqueue_scripts', 'cm_starter_scripts' );
 /**
  * Implement the Custom Header feature.
  */
+require get_template_directory() . '/cornerstone/cornerstone-functions.php';
+
+/**
+ * Implement the Custom Header feature.
+ */
 require get_template_directory() . '/inc/custom-header.php';
 
 /**
