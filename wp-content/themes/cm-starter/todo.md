@@ -1,0 +1,31 @@
+# CM Starter To Do
+
+- Add common functions:
+    - Excerpt shortening
+    - Structured data for local businesses
+        -Phone Number - https://css-tricks.com/the-current-state-of-telephone-links/
+    - Have functions that spit out common HTML -- creation of own template tags
+    - Add body classes
+- Add flexible template with most common modules
+- Make flexible template smarter, and modules more robust
+    - Each module should have a standard wrapper and standard options
+        - top bottom spacing
+        - ability to collapse top margin
+        - ability to add BG images or customize BG color
+- Add global variables
+- Add support for different file types / mime types to be uploaded
+- Modularize so functionality can easily be included or excluded
+- Add Gulp
+- Add Package.json
+- Add Custom Post Types
+- Custom shortcodes for use within wysiwygs
+- Custom Image Sizes
+- Responsive Images -- srcset or picture
+- Vendor functionality
+    - tachyons
+    - grid system
+    - slideshow
+    - modal window
+    - lazy loading
+    - smooth scroll
+
