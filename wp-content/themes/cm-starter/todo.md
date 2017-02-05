@@ -12,7 +12,6 @@
         - top bottom spacing
         - ability to collapse top margin
         - ability to add BG images or customize BG color
-- Add global variables
 - Add support for different file types / mime types to be uploaded
 - Modularize so functionality can easily be included or excluded
 - Add Gulp
