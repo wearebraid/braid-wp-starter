@@ -1,0 +1,31 @@
+{
+  "name": "pillaraught",
+  "version": "1.0.0",
+  "description": "A WordPress Theme for the Pillar Aught Website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Luan Nguyen, Cornerstone Media",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-clean": "^0.3.2",
+    "gulp-clean-css": "^2.0.13",
+    "gulp-concat": "^2.6.0",
+    "gulp-concat-css": "^2.3.0",
+    "gulp-livereload": "^3.8.1",
+    "gulp-notify": "^2.2.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.3.2",
+    "gulp-uglify": "^2.0.0",
+    "gulp-watch": "^4.3.10",
+    "remodal": "^1.1.0",
+    "tachyons": "^4.5.3"
+  },
+  "dependencies": {
+    "owl.carousel": "^2.2.0"
+  }
+}

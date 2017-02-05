@@ -21,6 +21,9 @@
 - Custom shortcodes for use within wysiwygs
 - Custom Image Sizes
 - Responsive Images -- srcset or picture
+- SCSS
+    - global.scss -- useful classes
+    - useful mixins
 - Vendor functionality
     - tachyons
     - grid system

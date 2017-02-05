@@ -1,0 +1,27 @@
+// breakpoints
+$mobile-small: 480px;
+$tablet-width: 768px;
+$desktop-width: 1024px;
+$desktop-nav-start: 940px;
+
+// colors
+$primary: #426972;
+$secondary: #454241;
+$error: #ff4d4d;
+$bodyCopy: #6d6a69;
+$headingCopy: $secondary;
+$twitterColor: #1DA1F3;
+$instagramColor: #125688;
+$pinterestColor: #bd081c;
+$socialBg: #727272;
+$stroke: #ddd;
+$subFooterBg: #121212;
+
+// utility
+$nav-padding-desktop: 90px;
+$nav-padding-mobile: 56px;
+
+// fonts
+$serif: "Georgia", Cambria, Times New Roman, Times, serif;
+$sans: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$body: $sans;
