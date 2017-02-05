@@ -35,14 +35,11 @@ CM.query = function(selector) {
 CM.isHome = !!document.getElementsByClassName('home').length;
 CM.isFlexible = !!document.getElementsByClassName('page-template-page-flexible').length;
 CM.hasForm = !!document.getElementsByClassName('gform_wrapper').length;
-CM.isAbout = !!document.getElementsByClassName('team-members').length;
-CM.isExpertisePages = (!!document.getElementsByClassName('single-expertise').length ||
-                        !!document.getElementsByClassName('pa-expertise-wrap').length);
-CM.isNewsSingle = !!document.getElementsByClassName('single-post').length;
+
 
 
 // Set up namespace
-var PillarAught = PillarAught || {};
+var CMStarter = CMStarter || {};
 
 (function(ns, $win, $, undefined) {
     var $htmlBody = $('html, body');
@@ -52,33 +49,6 @@ var PillarAught = PillarAught || {};
             effect : "fadeIn",
             threshold : 100
         });
-    }
-
-    function initSlider() {
-        if (CM.isFlexible) {
-            $('.owl-carousel').owlCarousel({
-                items: 1,
-                autoplay: true,
-                autoplayTimeout: 4500,
-                autoplaySpeed: 400,
-                navSpeed: 400,
-                loop: true
-                //nav: true
-            });
-        }
-        
-
-        if (CM.isHome ) { 
-            $('.owl-carousel').owlCarousel({
-                items: 1,
-                autoplay: true,
-                autoplayTimeout: 4500,
-                autoplaySpeed: 400,
-                navSpeed: 400,
-                loop: true
-                //nav: true
-            });
-        }
     }
 
     function toggleNavMenu() {
@@ -127,76 +97,6 @@ var PillarAught = PillarAught || {};
     }
 
 
-    // active navigation indicators to individual blog posts and single-expertise
-    // even though only their parents are in the main navigation
-    function activeNav() {
-        if (CM.isExpertisePages) {
-            $('.menu-expertise').addClass('current-menu-item');
-        } else if (CM.isNewsSingle) {
-            $('.menu-news-and-events').addClass('current-menu-item');
-        }
-    }
-
-    // about page
-    function leadershipAccordions() {
-        if (!CM.isAbout) { return; }
-
-        var $wrapper = $('.team-members');
-        var $tiles = $wrapper.find('.team-member--tile');
-        var $desktopSlots = $wrapper.find('.desktop-slot');
-        var $mobileSlots = $wrapper.find('.mobile-slot');
-
-        $tiles.click(function() {
-            viewport = updateViewportDimensions();
-            var $this = $(this);
-            var dataId = $this.attr('data-id');
-            var dataCount = parseInt($this.attr('data-count'));
-            var $bio = $this.closest('.team-member').find('.team-member--data');
-            var headerHeight = $('.site-header').outerHeight();
-
-            if ($this.hasClass('active')) {
-                $this.removeClass('active')
-                $desktopSlots.add($mobileSlots).removeAttr('style');
-            } else {
-                $tiles.removeClass('active');
-                $desktopSlots.add($mobileSlots).removeAttr('style');
-                $this.addClass('active');
-
-                if (viewport.width > 767) {
-                    // desktop
-                    $desktopSlots.each(function(){
-                        var $this = $(this);
-                        var dataMax = parseInt($(this).attr('data-max'));
-                        if (dataCount <= dataMax) {
-                            $this.empty();
-                            $bio.clone().appendTo($this);
-                            $this.css('display', 'block');
-
-                            setTimeout(function() {
-                                $htmlBody.animate(
-                                {scrollTop: $this.offset().top - headerHeight}, 350);
-                            }, 301);
-                            
-
-                            // break out of jQuery each()
-                            return false;
-                        }
-                    });
-                } else {
-                    // mobile
-                    var $slot = $mobileSlots.filter('[data-slot="' + dataId + '"]');
-                    $slot.empty();
-                    $bio.clone().appendTo($slot);
-                    $slot.css('display', 'block');
-
-                    setTimeout(function() {
-                        $htmlBody.animate(
-                        {scrollTop: $slot.offset().top - headerHeight}, 350);
-                    }, 301);
-                }
-            }
-        });
-    }
 
 
 
@@ -204,14 +104,11 @@ var PillarAught = PillarAught || {};
     // public methods and variables
     // ----
     ns.init = function() {
-        initSlider();
         subMenus();
         toggleNavMenu();
         smoothScroll();
         initLazyLoad();
         contentAccordion();
-        leadershipAccordions();
-        activeNav();
     };
 
     ns.windowLoadInit = function() {
@@ -219,7 +116,7 @@ var PillarAught = PillarAught || {};
 
 
 
-}(PillarAught = PillarAught || {}, jQuery(window), jQuery));
+}(CMStarter = CMStarter || {}, jQuery(window), jQuery));
 
 
 
@@ -228,10 +125,10 @@ var PillarAught = PillarAught || {};
 
 
 jQuery(document).ready(function($) {
-    PillarAught.init();
+    CMStarter.init();
 });
 
 
 jQuery(window).load(function() {
-    PillarAught.windowLoadInit();
+    CMStarter.windowLoadInit();
 });

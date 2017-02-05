@@ -1,7 +1,7 @@
 {
-  "name": "pillaraught",
+  "name": "cmstarter",
   "version": "1.0.0",
-  "description": "A WordPress Theme for the Pillar Aught Website",
+  "description": "A Starter WordPress Theme for Cornerstone Media",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -24,8 +24,5 @@
     "gulp-watch": "^4.3.10",
     "remodal": "^1.1.0",
     "tachyons": "^4.5.3"
-  },
-  "dependencies": {
-    "owl.carousel": "^2.2.0"
   }
 }
