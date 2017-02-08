@@ -1,12 +1,12 @@
 <?php
 /*
 	Template Name: Flexible Page Template
-	Template Post Type: page, expertise
+	Template Post Type: page
 */
 
-$uploads = wp_upload_dir()['baseurl'];
-$root = get_template_directory_uri();
-$img_root = $root . "/lib/img";
+global $uploads;
+global $root;
+global $img_root;
 
 get_header(); ?>
 
@@ -84,46 +84,7 @@ get_header(); ?>
 							</div>
 
 
-
-
-						<?php elseif( get_row_layout() == 'content_slides_5050' ): ?>
-
-							<?php
-							// ----
-							// Layout: Content Slides 50/50
-							?>
-
-							<?php if( have_rows('slides') ): ?>
-								<div class="content-slides flex-l">
-									<div class="content-slides--content-wrap w-50-l pa3 pa4-ns">
-										<div class="content-slides--content">
-											<?php the_content(); ?>
-										</div>
-									</div>
-									<div class="owl-carousel content-slides--slides owl-theme overflow-hidden relative">
-										<?php while( have_rows('slides') ) : the_row(); ?>
-											<?php 
-												$image = get_sub_field('image');
-												$style = "background-image: url(" . $image['sizes']['1:1-medium'] . ");";
-												$topText = get_sub_field('top_text');
-												$middleText = get_sub_field('middle_text');
-												$bottomText = get_sub_field('bottom_text');
-											?>
-											<div class="content-slides--slide white ttu tc cover relative h-100" style="<?=$style; ?>">
-												<div class="content-slides--slide-content ttu white center-it w-90">
-													<p class="tc"><?=$topText;?></p>
-													<h3><?=$middleText;?></h3>
-													<p class="tc"><?=$bottomText;?></p>
-												</div>
-											</div>
-										<?php endwhile; ?>
-									</div>
-								</div>
-								
-							<?php endif; // end have_rows('slides') ?>
-
 							
-								
 
 
 						<?php elseif( get_row_layout() == 'grid_width_image' ): ?>
@@ -138,6 +99,7 @@ get_header(); ?>
 									<img class="w-100" src="<?php echo $img['sizes']['container-width']; ?>" alt="<?php echo $img['alt']; ?>" />
 								</div>
 							<?php endif; ?>
+
 
 
 
@@ -194,14 +156,6 @@ get_header(); ?>
 
 
 
-						<?php elseif( get_row_layout() == 'leadership_block' ): ?>
-
-							<?php
-							// ----
-							// Layout: Leadership Block
-							get_template_part('template-parts/part-team-members');
-							?>
-
 
 						<?php elseif( get_row_layout() == 'form' ): ?>
 
@@ -214,7 +168,6 @@ get_header(); ?>
 							<div class="row pa3 form-module mb4">
 								<?php 
 									if ($shortcode) {
-										echo do_shortcode('[splitheading light="Inquiries" dark="Form"]');
 										echo do_shortcode($shortcode);
 									}
 								?>
@@ -222,54 +175,6 @@ get_header(); ?>
 							
 
 
-
-						<?php elseif( get_row_layout() == 'location_module' ): ?>
-
-							<?php
-							// ----
-							// Layout: Location Module
-							if ( has_post_thumbnail() ) {
-								$img_url = wp_get_attachment_image_src( get_post_thumbnail_id(), '1.78:1-small');
-								$style = "background-image: url(" . $img_url[0] . ");";
-							}
-
-								global $genAddress;
-								global $addressGoogleFormat;
-								$addressHTML = str_replace('Circle', 'Circle <br>', $genAddress);
-								global $genPhone;
-								global $genPhoneHref;
-								global $genFax;
-								global $genFaxHref;
-							?>
-
-							<div class="row pa3">
-								<div class="pa-location bd-pri row">
-									<div class="pa-location--banner relative cover" style="<?=$style;?>">
-										<div class="absolute center-it w-90 tc">
-											<h3 class="fw3 ma0 white">Office Location</h3>
-											<h2 class="fw7 ma0 white">Harrisburg</h2>
-										</div>
-									</div>
-
-									<div class="pa-location--contact flex-ns">
-										<div class="pa-location--address w-50-ns ">
-											<div class="fw7 mb3">Address</div>
-											<div class="mb3"><?=$addressHTML;?></div>
-											
-											<a href="https://maps.google.com/?daddr=<?=$addressGoogleFormat;?>" target="_blank" class="btn alt2">Directions</a>
-										</div>
-										<div class="pa-location--phone w-50-ns">
-											<div class="fw7 mb3">Call</div>
-											<div class="mb3">
-												<?=$genPhone;?><br>
-												Fax: <a class="copy-color" href="<?=$genFaxHref;?>"><?=$genFax;?></a>
-											</div>
-											
-											<a href="<?=$genPhoneHref?>" class="btn alt2">Inquiries</a>
-										</div>
-									</div>
-								</div>
-							</div>
 							
 
 
