@@ -1,7 +1,16 @@
+// utilities
 @import "modules/variables";
 @import "modules/custom-mixins";
+
 // custom version of tachyons that uses breakpoint variables
-@import "vendor/_tachyons";
+@import "vendor/tachyons";
+
+// 3rd party
+// @import "vendor/remodal";
+// @import "vendor/remodal-default-theme";
+// @import "vendor/owl-carousel";
+
+// all the rest
 @import "modules/typography";
 @import "modules/global";
 @import "modules/content";
@@ -9,4 +18,4 @@
 @import "modules/banner";
 @import "modules/modules";
 @import "modules/pages";
-@import "modules/_owl-carousel";
+

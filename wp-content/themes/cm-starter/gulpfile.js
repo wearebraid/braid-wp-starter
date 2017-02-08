@@ -121,7 +121,7 @@ gulp.task('js-app', function () {
 // ----
 
 var globalCss = [
-    './lib/scss/**/*.scss',
+    './lib/scss/*.scss',
 ];
 
 

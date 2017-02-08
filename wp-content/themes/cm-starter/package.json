@@ -21,8 +21,6 @@
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.3.2",
     "gulp-uglify": "^2.0.0",
-    "gulp-watch": "^4.3.10",
-    "remodal": "^1.1.0",
-    "tachyons": "^4.5.3"
+    "gulp-watch": "^4.3.10"
   }
 }
