@@ -6,4 +6,4 @@ Instructions after cloning this theme, or after manually installing _S theme in 
 - Update package.json
 - Install all dependencies via npm install
 - Update breakpoints for Tachyons
-
+- Merge the _S "wp_enqueue_scripts" function with the CM Starter version
