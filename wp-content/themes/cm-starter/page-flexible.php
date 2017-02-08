@@ -37,11 +37,7 @@ get_header(); ?>
 
 							<div class="hero-banner hero-banner--<?php the_sub_field('size');?> <?=$bgCol;?> ttu white tc cover relative" style="<?=$style; ?>">
 								<div class="hero-banner--content absolute center-it ttu white w-90">
-									<?php if(get_sub_field('use_pillar_aught_logo')): ?>
-									<img class="hero-banner--img mb2 mb3-ns dib" src="<?=$root;?>/lib/svg/pa_new.svg" alt="Pillar Aught Logo">
-									<?php else: ?>
 									<h2 class="fw7 lh-solid ma0 mb2"><?php the_sub_field('heading'); ?></h2>
-									<?php endif; ?>
 									<h3 class="fw3 mt0"><?php the_sub_field('sub_heading'); ?></h3>
 								</div>
 							</div>
