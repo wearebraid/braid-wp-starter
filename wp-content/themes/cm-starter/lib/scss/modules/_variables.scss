@@ -1,7 +1,8 @@
 // breakpoints
-$mobile-small: 480px;
-$tablet-width: 768px;
-$desktop-width: 1024px;
+$mobile-small: 450px;
+$tablet-width: 680px;
+$desktop-small: 1030px;
+$desktop-large: 1350px;
 $desktop-nav-start: 940px;
 
 // colors
@@ -21,6 +22,8 @@ $subFooterBg: #121212;
 // utility
 $nav-padding-desktop: 90px;
 $nav-padding-mobile: 56px;
+$mobile-padding: 20px;
+$row-width: 1100px;
 
 // fonts
 $serif: "Georgia", Cambria, Times New Roman, Times, serif;

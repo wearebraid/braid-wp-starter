@@ -8,7 +8,8 @@ function cm_starter_scripts() {
     wp_enqueue_style( 'cm-starter-style', get_stylesheet_uri() );
 
     // Accessibility Improvements
-	wp_enqueue_script( 'cm-starter-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
+	// wp_enqueue_script( 'cm-starter-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
+    // skip-link-focus.js is included in gulp bundle for performance
 
 	// Main Client CSS
 	wp_enqueue_style( 'cm-starter-app-style', get_template_directory_uri() . '/dist/app.min.css', [], '20170207');

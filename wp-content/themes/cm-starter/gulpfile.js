@@ -76,7 +76,6 @@ gulp.task('default', ['build', 'watch']);
 // app.js files -- where almost all JS files should go
 var appJS = [
     './lib/js/vendor/jquery.lazyload.min.js',
-    // './lib/js/vendor/smoothscroll.js',
     // './lib/js/vendor/owl.carousel.min.js',
     './js/skip-link-focus-fix.js',
     './lib/js/script.js'
@@ -122,7 +121,6 @@ gulp.task('js-app', function () {
 // ----
 
 var globalCss = [
-    './node_modules/tachyons/css/tachyons.css',
     './lib/scss/**/*.scss',
 ];
 

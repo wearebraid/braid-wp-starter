@@ -52,12 +52,6 @@ h6 {
     line-height: 1.333;
 }
 
-.f0, .f05 {
-    sup {
-        font-size: 52%;
-        top: -.75em;
-    }
-}
 
 p {
     word-break: break-word;
@@ -94,7 +88,6 @@ a {
 
 hr {
     height: 1px;
-    background-color: white;
     margin: 1rem 0;
 }
 
@@ -152,7 +145,7 @@ ul, ol {
         }
     }
 
-    &.alt2 {
+    &.alt-2 {
         background-color: transparent;
         color: $bodyCopy;
         border-color: $bodyCopy;

@@ -1,5 +1,7 @@
 @import "modules/variables";
 @import "modules/custom-mixins";
+// custom version of tachyons that uses breakpoint variables
+@import "vendor/_tachyons";
 @import "modules/typography";
 @import "modules/global";
 @import "modules/content";
