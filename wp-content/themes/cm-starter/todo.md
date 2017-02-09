@@ -11,18 +11,8 @@
         - top bottom spacing
         - ability to collapse top margin
         - ability to add BG images or customize BG color
-- Add support for different file types / mime types to be uploaded
-- Modularize so functionality can easily be included or excluded
 - Custom shortcodes for use within wysiwygs
 - Responsive Images -- srcset or picture
-- SCSS
-    - global.scss -- useful classes
-    - useful mixins
 - Vendor functionality
-    - tachyons
     - grid system
-    - slideshow
-    - modal window
-    - lazy loading
-    - smooth scroll
 
