@@ -10,3 +10,5 @@ Instructions after cloning this theme, or after manually installing _S theme in 
 - Update breakpoints for Tachyons
 - Merge the _S "wp_enqueue_scripts" function with the CM Starter version
 - Turn debug mode on (wp-config) for local development
+- Pull style.css from CM-Starter -- since _S adds lots of styles for the main navigation
+- Remove Normalize from _S style.css since normalize comes with tachyons
