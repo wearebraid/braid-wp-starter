@@ -46,7 +46,8 @@ function auto_update_specific_plugins ( $update, $item ) {
         'wordpress-seo',
         'wordpress-seo-premium',
         'wp-migrate-db-pro',
-        'wp-migrate-db-pro-media-files'
+        'wp-migrate-db-pro-media-files',
+        'akismet'
     );
     if ( in_array( $item->slug, $plugins ) ) {
         return true; // Always update plugins in this array
