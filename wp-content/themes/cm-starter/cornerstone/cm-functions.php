@@ -41,6 +41,9 @@ require_once(get_template_directory() . '/cornerstone/cm-header.php');
 // Register Custom Post Types
 require_once(get_template_directory() . '/cornerstone/cm-custom-post-types.php');
 
+// Setup Default Users
+require_once(get_template_directory() . '/cornerstone/cm-default-users.php');
+
 
 
 
