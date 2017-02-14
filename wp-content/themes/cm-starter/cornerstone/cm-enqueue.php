@@ -5,21 +5,22 @@
 
 function cm_starter_scripts() {
     // vars
-    $clientCSSAbsolutePath = get_template_directory() . '/dist/app.min.css';
-    $clientJSAbsolutePath = get_template_directory() . '/dist/app.min.js';
+    $clientCSSversion = filemtime(get_template_directory() . '/dist/app.min.css');
+    $clientJSversion = filemtime(get_template_directory() . '/dist/app.min.js');
+    $styleCSSVersion = filemtime(get_template_directory() . '/style.css');
 
     // default style.css which has a normalize
-    wp_enqueue_style( 'cm-starter-style', get_stylesheet_uri() );
+    wp_enqueue_style( 'cm-starter-style', get_stylesheet_uri(), [], $styleCSSVersion );
 
     // Accessibility Improvements
 	// wp_enqueue_script( 'cm-starter-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
     // skip-link-focus.js is included in gulp bundle for performance
 
 	// Main Client CSS
-	wp_enqueue_style( 'cm-starter-app-style', get_template_directory_uri() . '/dist/app.min.css', [], filemtime($clientCSSAbsolutePath));
+	wp_enqueue_style( 'cm-starter-app-style', get_template_directory_uri() . '/dist/app.min.css', [], $clientCSSversion);
 
 	// Main Client JS
-	wp_enqueue_script( 'cm-starter-app-js', get_template_directory_uri() . '/dist/app.min.js', ['jquery'], filemtime($clientJSAbsolutePath), true );
+	wp_enqueue_script( 'cm-starter-app-js', get_template_directory_uri() . '/dist/app.min.js', ['jquery'], $clientJSversion, true );
 
     // Font Awesome
     wp_enqueue_script( 'font-awesome', 'https://use.fontawesome.com/8ef1cdd67b.js', [], false);
