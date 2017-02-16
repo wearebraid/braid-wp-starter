@@ -74,6 +74,9 @@ add_filter( 'allow_dev_auto_core_updates', '__return_false' );  // Enable develo
 add_filter( 'allow_minor_auto_core_updates', '__return_true' ); // Enable minor updates
 add_filter( 'allow_major_auto_core_updates', '__return_true' ); // Enable major updates
 
+// To enable automatic updates even if a VCS folder (.git, .hg, .svn etc) was found in the WordPress directory
+add_filter( 'automatic_updates_is_vcs_checkout', '__return_false', 1 );  
+
 
 
 // update these plugins automatically -- they are from reputable authors
