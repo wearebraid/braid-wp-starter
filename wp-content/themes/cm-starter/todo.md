@@ -11,9 +11,14 @@
         - top bottom spacing
         - ability to collapse top margin
         - ability to add BG images or customize BG color
+- site wide settings, such as how much padding between modules, etc.
 - Custom shortcodes for use within wysiwygs
 - Responsive Images -- srcset or picture
 - Vendor functionality
     - grid system
 - Content Teasers -- add to cornerstone folder
 - Make sure WordPress is being backed up regularly
+- A standard styled 404 page
+- A standard styled search page
+- A standard contact form with styles and functionality
+- Integrated Google Analytics in Site-Options. If code exists -- add the script in.
