@@ -57,7 +57,12 @@ add_action( 'wp_dashboard_setup', 'cm_add_dashboard_widgets' );
 function cm_dash_maintenance_notes() {
 	// Display whatever it is you want to show.
 	?> 
-        <p>Hello!</p>
+        <p>
+          Hello! Here are some notes for maintaining this website.
+          If you have any extra questions,
+          please email <a href="mailto:luan@cornerstone.media">luan@cornerstone.media</a>,
+          the theme author.
+        </p>
     <?php
 }
 
