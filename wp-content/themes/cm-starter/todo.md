@@ -16,3 +16,4 @@
 - Vendor functionality
     - grid system
 - Content Teasers -- add to cornerstone folder
+- Make sure WordPress is being backed up regularly
