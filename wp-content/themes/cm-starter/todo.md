@@ -15,4 +15,4 @@
 - Responsive Images -- srcset or picture
 - Vendor functionality
     - grid system
-- Auto create BBM user for editor and Admin
+- Content Teasers -- add to cornerstone folder
