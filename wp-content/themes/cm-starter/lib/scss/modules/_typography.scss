@@ -69,15 +69,15 @@ p {
 
 a {
     text-decoration: none;
-    color: $primary;
+    color: $link;
     &:hover {
         cursor: pointer;
-        color: $primary;
+        color: $link;
         text-decoration: underline;
     }
 
     &:active, &:focus, &:visited {
-        color: $primary;
+        color: $link;
         outline: none;
     }
 
