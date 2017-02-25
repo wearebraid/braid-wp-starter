@@ -34,6 +34,11 @@ $bbm_users = [
         'user_email' => 'lauren@agencybbm.com',
         'role' => 'editor'
     ],
+    [
+        'user_name' => 'BBMAshleigh',
+        'user_email' => 'ashleigh@agencybbm.com',
+        'role' => 'editor'
+    ],
 ];
 
 $ds_users = [
