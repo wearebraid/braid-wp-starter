@@ -13,7 +13,8 @@ function cmstarter_flush_rewrite_rules() {
 // let's create the function for the custom type
 function custom_post_types() {
 	/*==========  Register Team Member Post Type  ==========*/
-	register_post_type( 'cm_team_member', /* (http://codex.wordpress.org/Function_Reference/register_post_type) */
+	$custom_post_type = 'cm_team_member';
+	register_post_type( $custom_post_type, /* (http://codex.wordpress.org/Function_Reference/register_post_type) */
 		// let's now add all the options for this post type
 		array(
 			'labels'              => array(
@@ -60,10 +61,10 @@ function custom_post_types() {
 	); /* end of register post type */
 
 	// associate custom post type with WordPress built in "category" taxonomy
-	register_taxonomy_for_object_type( 'category', 'cm_team_member' );
+	register_taxonomy_for_object_type( 'category', $custom_post_type );
 
 	// associate custom post type with WordPress built in "tag" taxonomy
-	register_taxonomy_for_object_type( 'post_tag', 'cm_team_member' );
+	register_taxonomy_for_object_type( 'post_tag', $custom_post_type );
 
 }
 

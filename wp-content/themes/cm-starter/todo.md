@@ -4,6 +4,7 @@
     - Structured data for local businesses
         -Phone Number - https://css-tricks.com/the-current-state-of-telephone-links/
     - Have functions that spit out common HTML -- creation of own template tags
+        - Button
     - Add body classes
 - Add flexible template with most common modules
 - Make flexible template smarter, and modules more robust
@@ -22,3 +23,4 @@
 - A standard styled search page
 - A standard contact form with styles and functionality
 - Integrated Google Analytics in Site-Options. If code exists -- add the script in.
+- Add default ACF Json file to import into install to have a good starting point -- which equates to the default modules

@@ -17,4 +17,26 @@ function excerpt($limit) {
     $excerpt = preg_replace('`[[^]]*]`','',$excerpt);
     return $excerpt;
 }
+
+
+
+// ---
+// Shortcodes
+// ---
+
+// button
+function cm_button($atts) {
+	$a = shortcode_atts([
+		'link' => 'link',
+		'href' => 'link',
+		'text' => 'text'
+	], $atts);
+
+	$link = ($a['link'] === 'link') ? $a['href'] : $a['link'];
+
+	return '<a class="btn" href="' . $link . '">' . $a['text'] .'</a>';
+}
+
+add_shortcode('button', 'cm_button');
+
 ?>

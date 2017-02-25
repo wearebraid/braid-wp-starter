@@ -32,7 +32,7 @@ function cm_add_dashboard_widgets() {
 
 	wp_add_dashboard_widget(
         'cm_dashboard_widget',         // Widget slug.
-        'Site Maintenance Notes',         // Title.
+        'Site Notes and Support',         // Title.
         'cm_dash_maintenance_notes' // Display function.
     );
 	
