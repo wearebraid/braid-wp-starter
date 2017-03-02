@@ -24,3 +24,8 @@
 - A standard contact form with styles and functionality
 - Integrated Google Analytics in Site-Options. If code exists -- add the script in.
 - Add default ACF Json file to import into install to have a good starting point -- which equates to the default modules
+- Namespace and standardize Flexible content modules -- both in HTML and CSS.
+- Add default accessible tabs code to script.js -- either using data attributes or href/ids, etc.
+- Set up infrastructure to add new buttons to the TinyMCE editor that maps into custom shortcodes that I create
+     - https://www.gavick.com/blog/wordpress-tinymce-custom-buttons#tc-section-1
+     

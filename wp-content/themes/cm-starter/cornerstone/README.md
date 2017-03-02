@@ -20,3 +20,4 @@ Instructions after cloning this theme, or after manually installing _S theme in 
 - [ ] Replace Theme Name and details in style.css
 - [ ] Replace screenshot.png in theme root
 - [ ] Get client to connect Google Analytics
+- [ ] Uncheck Organize Uploads by Year and Month

@@ -2,6 +2,12 @@
 // Full Bleed Image
 // ---
 .full-bleed-image {
+    &.zoom-mobile {
+        @include mobile {
+            width: 150%;
+            margin-left: -25%;
+        }
+    }
     img {
         width: 100%;
     }
