@@ -14,7 +14,8 @@
         - ability to add BG images or customize BG color
 - site wide settings, such as how much padding between modules, etc.
 - Custom shortcodes for use within wysiwygs
-- Responsive Images -- srcset or picture
+- Responsive Images -- srcset or picture -- integrate this with ACF.
+    - http://aaronrutley.com/responsive-images-in-wordpress-with-acf/
 - Vendor functionality
     - grid system
 - Content Teasers -- add to cornerstone folder
