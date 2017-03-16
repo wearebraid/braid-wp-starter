@@ -27,6 +27,7 @@ function cm_custom_image_sizes( $sizes ) {
 	return array_merge( $sizes, array(
 		'full-bleed' => __('2000px by auto-height'),
 		'container-width' => __('1400px by auto-height'),
+		'mid-size' => __('900px by auto-height'),
 	) );
 }
 
