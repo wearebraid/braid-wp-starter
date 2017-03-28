@@ -25,7 +25,7 @@ add_filter( 'intermediate_image_sizes_advanced', 'cm_remove_default_image_sizes'
 // var_dump( get_intermediate_image_sizes() );
 
 
-
+// Register Custom Image sizes so user can select from them within the content editor
 function cm_custom_image_sizes( $sizes ) {
 	return array_merge( $sizes, array(
 		// 'full-bleed' => __('2000px by auto-height'),

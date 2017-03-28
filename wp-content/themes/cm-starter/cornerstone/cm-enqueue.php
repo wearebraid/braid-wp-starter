@@ -4,7 +4,7 @@
 // ---
 
 function cm_starter_scripts() {
-    // vars
+    // each time the below files are saved, the version fingerprint changes to bust cache
     $clientCSSversion = filemtime(get_template_directory() . '/dist/app.min.css');
     $clientJSversion = filemtime(get_template_directory() . '/dist/app.min.js');
     $styleCSSVersion = filemtime(get_template_directory() . '/style.css');

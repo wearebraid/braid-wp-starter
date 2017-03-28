@@ -102,7 +102,7 @@ function cm_starter_widgets_init() {
 add_action( 'widgets_init', 'cm_starter_widgets_init' );
 
 /**
- * Implement the Custom Header feature.
+ * Import all cornerstone stuff
  */
 require get_template_directory() . '/cornerstone/cm-functions.php';
 
