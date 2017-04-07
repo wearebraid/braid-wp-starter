@@ -1,8 +1,8 @@
 // ---
-// hero banner
+// hero
 // ---
-.hero-banner {
-    height: 0;
+.hero {
+    height: 500px;
     height: 40vh;
     @include mobile {
         height: 55vh;

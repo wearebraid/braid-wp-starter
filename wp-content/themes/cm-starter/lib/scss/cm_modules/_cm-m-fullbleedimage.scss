@@ -1,7 +1,7 @@
 // ---
 // Full Bleed Image
 // ---
-.full-bleed-image {
+.full_bleed_image {
     &.zoom-mobile {
         @include mobile {
             width: 150%;

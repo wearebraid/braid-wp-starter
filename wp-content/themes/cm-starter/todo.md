@@ -16,6 +16,8 @@
 - Custom shortcodes for use within wysiwygs
 - Responsive Images -- srcset or picture -- integrate this with ACF.
     - http://aaronrutley.com/responsive-images-in-wordpress-with-acf/
+    - Take a look at BBM site
+    - Add picturefill
 - Vendor functionality
     - grid system
 - Content Teasers -- add to cornerstone folder
