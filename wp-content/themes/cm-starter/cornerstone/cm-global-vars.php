@@ -14,6 +14,6 @@ $genFax = get_field('fax', 'option');
 $genFaxHref = 'fax:' . str_replace(["-", "."], "", $genFax);
 $genEmail = get_field('email', 'option');
 $genAddress = get_field('address', 'option');
-$addressGoogleFormat = str_replace([", ", " "], "+", $genAddress);
+$addressGoogleFormat = "https://maps.google.com/?daddr=" . str_replace([", ", " "], "+", $genAddress);
 
 ?>

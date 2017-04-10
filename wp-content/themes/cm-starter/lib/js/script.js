@@ -61,13 +61,16 @@ var CMStarter = CMStarter || {};
 
     function subMenus() {
         var $navItem = $('.menu-item-has-children');
-        var $subMenu = $navItem.find('.sub-menu');
 
         $navItem.hover(
             function(){
+                var $this = $(this);
+                var $subMenu = $this.find('.sub-menu');
                 $subMenu.addClass('show-menu');
             },
             function(){
+                var $this = $(this);
+                var $subMenu = $this.find('.sub-menu');
                 $subMenu.removeClass('show-menu');
             }
         );
