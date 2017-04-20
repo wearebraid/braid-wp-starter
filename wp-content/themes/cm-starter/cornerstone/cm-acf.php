@@ -14,11 +14,30 @@ if( function_exists('acf_add_options_page') ) {
 // ---
 
 if( function_exists('acf_add_local_field_group') ):
-    // Social Media Fields
-    acf_add_local_field_group(array(
-        'key' => 'social_group',
-        'title' => 'Social URLs',
+    // tabbed structure
+    acf_add_local_field_group([
+        'key' => 'site_tabbed_options',
+	    'title' => 'Site Options',
         'fields' => [
+            // ---
+            // Social Media Tab
+            // ---
+            [
+                'key' => 'cm_tab_1',
+                'label' => 'Social Media',
+                'name' => '',
+                'type' => 'tab',
+                'instructions' => '',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => array (
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'placement' => 'top',
+                'endpoint' => 0,
+            ],
             [
                 'key' => 'field_linkedin',
                 'label' => 'LinkedIn',
@@ -54,32 +73,26 @@ if( function_exists('acf_add_local_field_group') ):
                 'label' => 'Instagram',
                 'name' => 'instagram',
                 'type' => 'url',
-            ]
-        ],
-        'location' => [
-            [
-                [
-                    'param' => 'options_page',
-                    'operator' => '==',
-                    'value' => 'acf-options',
-                ],
             ],
-        ],
-        'menu_order' => 5,
-        'position' => 'normal',
-        'style' => 'default',
-        'label_placement' => 'left',
-        'instruction_placement' => 'label',
-        'hide_on_screen' => '',
-        'active' => 1,
-        'description' => 'Social Media URLs',
-    ));
-
-    // Organization Information
-    acf_add_local_field_group(array(
-        'key' => 'organization_group',
-        'title' => 'Organization Information',
-        'fields' => [
+            // ---
+            // Organization Info Tab
+            // ---
+            [
+                'key' => 'cm_tab_2',
+                'label' => 'Org/Contact Info',
+                'name' => '',
+                'type' => 'tab',
+                'instructions' => '',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => array (
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'placement' => 'top',
+                'endpoint' => 0,
+            ],
             [
                 'key' => 'field_address',
                 'label' => 'Address',
@@ -103,7 +116,7 @@ if( function_exists('acf_add_local_field_group') ):
                 'label' => 'Email',
                 'name' => 'email',
                 'type' => 'email',
-            ],
+            ]
         ],
         'location' => [
             [
@@ -115,14 +128,16 @@ if( function_exists('acf_add_local_field_group') ):
             ],
         ],
         'menu_order' => 0,
-        'position' => 'normal',
+        'position' => 'acf_after_title',
         'style' => 'default',
         'label_placement' => 'left',
         'instruction_placement' => 'label',
         'hide_on_screen' => '',
         'active' => 1,
-        'description' => 'Organization details',
-    ));
+        'description' => '',
+    ]);
+
 endif;
+
 
 ?>
