@@ -188,9 +188,6 @@ get_header(); ?>
 			?>
 
 
-			<?php get_template_part('template-parts/part-expertise'); ?>
-			
-
 			<?php wp_reset_postdata(); ?>
 
 		<?php
