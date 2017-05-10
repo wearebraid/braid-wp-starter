@@ -21,3 +21,5 @@ Instructions after cloning this theme, or after manually installing _S theme in 
 - [ ] Replace screenshot.png in theme root
 - [ ] Get client to connect Google Analytics
 - [ ] Uncheck Organize Uploads by Year and Month
+- [ ] Change Permalink structure
+- [ ] Uncheck "Organize my uploads into month and year based folders"

@@ -3,9 +3,6 @@
     // so we can easily plug into any WordPress Theme
     // Make sure to require this file in functions.php...
         // require get_template_directory() . '/cornerstone/cornerstone-functions.php';
-?>
-
-<?php 
 
 
 // Global Variables For Use Theme-wide
