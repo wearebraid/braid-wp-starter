@@ -25,7 +25,7 @@ get_header(); ?>
 					while ( have_rows('content') ) : the_row(); ?>
 
 
-						<?php elseif( get_row_layout() == 'colored_text_bar' ): ?>
+						<?php if( get_row_layout() == 'colored_text_bar' ): ?>
 
 							<?php
 							// ----
