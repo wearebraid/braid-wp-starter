@@ -7,7 +7,7 @@ Instructions after cloning this theme, or after manually installing _S theme in 
 - [ ] Go through cornerstone-functions.php file and determine which functionality will be needed for the site
 - [ ] Add all of the missing root directory files
     - page-home.php
-    - page-flexible.php
+    - template-flexible.php
     - package.json
     - gulpfile.js
 - [ ] Update package.json
@@ -23,3 +23,4 @@ Instructions after cloning this theme, or after manually installing _S theme in 
 - [ ] Uncheck Organize Uploads by Year and Month
 - [ ] Change Permalink structure
 - [ ] Uncheck "Organize my uploads into month and year based folders"
+- [ ] If on CloudWays, set up deployApplication.php

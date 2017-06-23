@@ -5,6 +5,11 @@ $cm_users = [
         'user_name' => 'LuanCornerstone',
         'user_email' => 'luan@cornerstone.media',
         'role' => 'administrator'
+    ],
+    [
+        'user_name' => 'ChrisCornerstone',
+        'user_email' => 'chris@cornerstone.media',
+        'role' => 'administrator'
     ]
 ];
 

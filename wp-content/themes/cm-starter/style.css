@@ -23,7 +23,6 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.io/normalize.css/
 /*--------------------------------------------------------------
 >>> TABLE OF CONTENTS:
 ----------------------------------------------------------------
-# Normalize
 # Typography
 # Elements
 # Forms
@@ -37,7 +36,6 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.io/normalize.css/
 # Content
 	## Posts and pages
 	## Comments
-# Infinite scroll
 # Media
 	## Captions
 	## Galleries
@@ -444,19 +442,6 @@ a:active {
 	display: block;
 }
 
-/*--------------------------------------------------------------
-# Infinite scroll
---------------------------------------------------------------*/
-/* Globally hidden elements when Infinite Scroll is supported and in use. */
-.infinite-scroll .posts-navigation, /* Older / Newer Posts Navigation (always hidden) */
-.infinite-scroll.neverending .site-footer { /* Theme Footer (when set to scrolling) */
-	display: none;
-}
-
-/* When Infinite Scroll has reached its end we need to re-display elements that were hidden (via .neverending) before. */
-.infinity-end.neverending .site-footer {
-	display: block;
-}
 
 /*--------------------------------------------------------------
 # Media
