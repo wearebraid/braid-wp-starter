@@ -41,6 +41,11 @@ require_once(get_template_directory() . '/cornerstone/cm-custom-post-types.php')
 // Setup Default Users
 require_once(get_template_directory() . '/cornerstone/cm-default-users.php');
 
+// Include Post Meta in Search results
+require_once(get_template_directory() . '/cornerstone/cm-search.php');
+
+
+
 
 
 
