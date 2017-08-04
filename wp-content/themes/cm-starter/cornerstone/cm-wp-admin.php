@@ -60,7 +60,7 @@ function cm_dash_maintenance_notes() {
         <p>
           Hello! Here are some notes for maintaining this website.
           If you have any extra questions,
-          please email <a href="mailto:luan@cornerstone.media">luan@cornerstone.media</a>,
+          please email <a href="mailto:luan@wearebraid.com">luan@wearebraid.com</a>,
           the theme author.
         </p>
     <?php
