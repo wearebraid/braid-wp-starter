@@ -23,7 +23,7 @@ require_once(get_template_directory() . '/cornerstone/cm-enqueue.php');
 // Custom Image Sizes
 require_once(get_template_directory() . '/cornerstone/cm-image-sizes.php');
 
-// Gravity Forms customizations
+// Gravity Forms Customizations
 require_once(get_template_directory() . '/cornerstone/cm-gravity-forms.php');
 
 // General Utilities

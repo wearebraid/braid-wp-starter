@@ -1,16 +1,31 @@
 <?php 
 
-$cm_users = [
+$braid_users = [
     [
-        'user_name' => 'LuanCornerstone',
-        'user_email' => 'luan@cornerstone.media',
+        'user_name' => 'Braid_Luan',
+        'user_email' => 'luan@wearebraid.com',
         'role' => 'administrator'
     ],
     [
-        'user_name' => 'ChrisCornerstone',
-        'user_email' => 'chris@cornerstone.media',
+        'user_name' => 'Braid_Andrew',
+        'user_email' => 'andrew@wearebraid.com',
         'role' => 'administrator'
-    ]
+    ],
+    [
+        'user_name' => 'Braid_Chris',
+        'user_email' => 'chris@wearebraid.com',
+        'role' => 'administrator'
+    ],
+    [
+        'user_name' => 'Braid_CGeelhoed',
+        'user_email' => 'cgeelhoed@wearebraid.com',
+        'role' => 'administrator'
+    ],
+    [
+        'user_name' => 'Braid_Justin',
+        'user_email' => 'justin@wearebraid.com',
+        'role' => 'administrator'
+    ],
 ];
 
 $bbm_users = [
@@ -65,8 +80,8 @@ $ds_users = [
 ];
 
 
-// $all_users = array_merge($cm_users, $bbm_users, $ds_users);
-$all_users = $cm_users;
+// $all_users = array_merge($braid_users, $bbm_users, $ds_users);
+$all_users = $braid_users;
 
 foreach($all_users as $user) {
     $user_id = username_exists( $user['user_name'] );
