@@ -9,7 +9,7 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package cm-starter
+ * @package braid-starter
  */
 
 get_header(); ?>

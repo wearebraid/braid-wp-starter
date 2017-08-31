@@ -1,4 +1,4 @@
-=== cm-starter ===
+=== braid-starter ===
 
 Contributors: automattic
 Tags: translation-ready, custom-background, theme-options, custom-menu, post-formats, threaded-comments
@@ -9,11 +9,11 @@ Stable tag: 1.0.0
 License: GNU General Public License v2 or later
 License URI: LICENSE
 
-A starter theme called cm-starter, or underscores.
+A starter theme called braid-starter, or underscores.
 
 == Description ==
 
-Hi. I'm a starter theme called cm-starter, or underscores, if you like. I'm a theme meant for hacking so don't use me as a Parent Theme. Instead try turning me into the next, most awesome, WordPress theme out there. That's what I'm here for.
+Hi. I'm a starter theme called braid-starter, or underscores, if you like. I'm a theme meant for hacking so don't use me as a Parent Theme. Instead try turning me into the next, most awesome, WordPress theme out there. That's what I'm here for.
 
 == Installation ==
 
@@ -25,7 +25,7 @@ Hi. I'm a starter theme called cm-starter, or underscores, if you like. I'm a th
 
 = Does this theme support any plugins? =
 
-cm-starter includes support for Infinite Scroll in Jetpack.
+braid-starter includes support for Infinite Scroll in Jetpack.
 
 == Changelog ==
 

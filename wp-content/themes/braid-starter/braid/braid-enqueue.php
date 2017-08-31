@@ -10,17 +10,17 @@ function cm_starter_scripts() {
     $styleCSSVersion = filemtime(get_template_directory() . '/style.css');
 
     // default style.css which has a normalize
-    wp_enqueue_style( 'cm-starter-style', get_stylesheet_uri(), [], $styleCSSVersion );
+    wp_enqueue_style( 'braid-starter-style', get_stylesheet_uri(), [], $styleCSSVersion );
 
     // Accessibility Improvements
-	// wp_enqueue_script( 'cm-starter-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
+	// wp_enqueue_script( 'braid-starter-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
     // skip-link-focus.js is included in gulp bundle for performance
 
 	// Main Client CSS
-	wp_enqueue_style( 'cm-starter-app-style', get_template_directory_uri() . '/dist/app.min.css', [], $clientCSSversion);
+	wp_enqueue_style( 'braid-starter-app-style', get_template_directory_uri() . '/dist/app.min.css', [], $clientCSSversion);
 
 	// Main Client JS
-	wp_enqueue_script( 'cm-starter-app-js', get_template_directory_uri() . '/dist/app.min.js', ['jquery'], $clientJSversion, true );
+	wp_enqueue_script( 'braid-starter-app-js', get_template_directory_uri() . '/dist/app.min.js', ['jquery'], $clientJSversion, true );
 
     // Font Awesome
     wp_enqueue_script( 'font-awesome', 'https://use.fontawesome.com/8ef1cdd67b.js', [], false);

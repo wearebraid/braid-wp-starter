@@ -1,8 +1,8 @@
 <?php
 /**
- * cm-starter Theme Customizer
+ * braid-starter Theme Customizer
  *
- * @package cm-starter
+ * @package braid-starter
  */
 
 /**

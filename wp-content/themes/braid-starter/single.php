@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
  *
- * @package cm-starter
+ * @package braid-starter
  */
 
 get_header(); ?>

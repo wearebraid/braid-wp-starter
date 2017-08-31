@@ -6,7 +6,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package cm-starter
+ * @package braid-starter
  */
 
 ?>
@@ -15,9 +15,9 @@
 
 	<footer id="colophon" class="site-footer" role="contentinfo">
 		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'cm-starter' ) ); ?>"><?php printf( esc_html__( 'Proudly powered by %s', 'cm-starter' ), 'WordPress' ); ?></a>
+			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'braid-starter' ) ); ?>"><?php printf( esc_html__( 'Proudly powered by %s', 'braid-starter' ), 'WordPress' ); ?></a>
 			<span class="sep"> | </span>
-			<?php printf( esc_html__( 'Theme: %1$s by %2$s.', 'cm-starter' ), 'cm-starter', '<a href="https://automattic.com/" rel="designer">Underscores.me</a>' ); ?>
+			<?php printf( esc_html__( 'Theme: %1$s by %2$s.', 'braid-starter' ), 'braid-starter', '<a href="https://automattic.com/" rel="designer">Underscores.me</a>' ); ?>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->
