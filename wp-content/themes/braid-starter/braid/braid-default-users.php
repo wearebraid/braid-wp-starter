@@ -30,34 +30,29 @@ $braid_users = [
 
 $bbm_users = [
     [
-        'user_name' => 'BBMAdmin',
-        'user_email' => 'info@agencybbm.com',
-        'role' => 'administrator'
-    ],
-    [
         'user_name' => 'BBMAmanda',
         'user_email' => 'amanda@agencybbm.com',
-        'role' => 'editor'
+        'role' => 'administrator'
     ],
     [
         'user_name' => 'BBMNic',
         'user_email' => 'nic@agencybbm.com',
-        'role' => 'editor'
+        'role' => 'administrator'
     ],
     [
         'user_name' => 'BBMMatt',
         'user_email' => 'matt@agencybbm.com',
-        'role' => 'editor'
+        'role' => 'administrator'
     ],
     [
         'user_name' => 'BBMLauren',
         'user_email' => 'lauren@agencybbm.com',
-        'role' => 'editor'
+        'role' => 'administrator'
     ],
     [
         'user_name' => 'BBMAshleigh',
         'user_email' => 'ashleigh@agencybbm.com',
-        'role' => 'editor'
+        'role' => 'administrator'
     ],
 ];
 
@@ -70,12 +65,12 @@ $ds_users = [
     [
         'user_name' => 'DSTori',
         'user_email' => 'tori@deuxsouth.com',
-        'role' => 'editor'
+        'role' => 'administrator'
     ],
     [
         'user_name' => 'DSRebecca',
         'user_email' => 'rebecca@deuxsouth.com',
-        'role' => 'editor'
+        'role' => 'administrator'
     ]
 ];
 
