@@ -25,25 +25,6 @@ get_header(); ?>
 					while ( have_rows('content') ) : the_row(); ?>
 
 
-						<?php if( get_row_layout() == 'colored_text_bar' ): ?>
-
-							<?php
-							// ----
-							// Layout: Colored Text Bar
-							$text = get_sub_field('text');
-							$bgColor = get_sub_field('bg_color');
-							$copyElem = get_sub_field('text_size') === 'heading' ? 'h2' : 'p';
-							?>
-
-							<?php if($text) : ?>
-								<div class="colored-text-bar bg-<?=$bgColor;?>">
-									<div class="colored-text-bar--content">
-										<<?=$copyElem;?>><?=$text;?></<?=$copyElem;?>>
-									</div>
-								</div>
-							<?php endif; ?>
-
-
 
 						<?php elseif( get_row_layout() == 'side_by_side_content' ): ?>
 
@@ -60,29 +41,6 @@ get_header(); ?>
 									<?php the_sub_field('right_side'); ?>
 								</div>
 							</div>
-
-
-
-
-
-
-						<?php elseif( get_row_layout() == 'the_content' ): ?>
-
-							<?php
-							// ----
-							// Layout: The Main Content
-							?>
-							<div class="row content-section the-content">
-								<?php  if (get_sub_field('show_title')) : ?>
-									<h1 class="entry-title"><?php the_title(); ?></h1>
-								<?php endif; ?>
-
-								<?php the_content(); ?>
-							</div>
-
-
-						
-
 
 						<?php endif;
 

@@ -4,6 +4,7 @@
 	Template Post Type: page
 */
 
+// themes global vars are location in braid/braid-global-vars.php
 global $uploads;
 global $root;
 global $img_root;
@@ -21,7 +22,7 @@ get_header(); ?>
                     while ( have_rows('content') ) : the_row();
                     ?>
                         <div class="flexi-content <?php echo get_row_layout(); ?>">
-                            <?php get_template_part('template-parts/flexible', get_row_layout()); ?>
+                            <?php get_template_part('braid/template-parts/flexible', get_row_layout()); ?>
                         </div>
                     <?php
                     endwhile;

@@ -26,14 +26,14 @@ add_filter('upload_mimes', 'cc_mime_types');
 
 
 // add custom widget to dashboard
-function cm_add_dashboard_widgets() {
+function braid_add_dashboard_widgets() {
     // Globalize the metaboxes array, this holds all the widgets for wp-admin
 	global $wp_meta_boxes;
 
 	wp_add_dashboard_widget(
-        'cm_dashboard_widget',         // Widget slug.
+        'braid_dashboard_widget',         // Widget slug.
         'Site Notes and Support',         // Title.
-        'cm_dash_maintenance_notes' // Display function.
+        'braid_dash_maintenance_notes' // Display function.
     );
 	
 	// Get the regular dashboard widgets array 
@@ -51,16 +51,16 @@ function cm_add_dashboard_widgets() {
 	$wp_meta_boxes['dashboard']['normal']['core'] = $sorted_dashboard;
 }
 
-add_action( 'wp_dashboard_setup', 'cm_add_dashboard_widgets' );
+add_action( 'wp_dashboard_setup', 'braid_add_dashboard_widgets' );
 
 // the function to output the contents of our Dashboard Widget.
-function cm_dash_maintenance_notes() {
+function braid_dash_maintenance_notes() {
 	// Display whatever it is you want to show.
 	?> 
         <p>
           Hello! Here are some notes for maintaining this website.
           If you have any extra questions,
-          please email <a href="mailto:luan@wearebraid.com">luan@wearebraid.com</a>,
+          please email <a href="mailto:hello@wearebraid.com">hello@wearebraid.com</a>,
           the theme author.
         </p>
     <?php

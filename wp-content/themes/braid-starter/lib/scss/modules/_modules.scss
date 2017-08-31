@@ -63,43 +63,6 @@
 }
 
 
-// ---
-// colored text bar
-// ---
-.colored-text-bar {
-    padding: 2.5rem 1rem;
-    color: white;
-    font-size: 19px;
-    line-height: 1.3;
-    &--content {
-        max-width: 900px;
-        margin-left: auto;
-        margin-right: auto;
-        @include tablet-down {
-            width: 80%;
-        }
-    }
-    
-    @include mobile {
-        font-size: 17px;
-    }
-
-    p {
-        font-weight: 300;
-        color: white;
-    }
-    h2 {
-        font-weight: 700;
-        text-transform: uppercase;
-        margin: 0;
-        text-align: center;
-        color: white;
-    }
-}
-
-
-
-
 
 // ---
 // side by side content

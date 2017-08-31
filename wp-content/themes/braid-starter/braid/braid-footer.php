@@ -5,7 +5,7 @@
 // ---
 
 function social_links() {
-    get_template_part('cornerstone/template-parts/cm-social');
+    get_template_part('cornerstone/template-parts/braid-social');
 }
 
 add_action('wp_footer', 'social_links');
