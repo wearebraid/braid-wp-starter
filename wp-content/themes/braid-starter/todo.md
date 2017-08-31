@@ -1,4 +1,4 @@
-# CM Starter To Do
+# Braid To Do
 
 - site wide settings, such as how much padding between modules, etc.
 - Custom shortcodes for use within wysiwygs
