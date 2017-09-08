@@ -44,10 +44,14 @@ var CMStarter = CMStarter || {};
 (function(ns, $win, $, undefined) {
     var $htmlBody = $('html, body');
 
+    // http://jquery.eisbehr.de/lazy/
+    // usage <img class="lazy" data-src="/some-path" alt=""> for img
+    // usage <div class="lazy" data-src="/some-path" alt=""> for background image
     function initLazyLoad() {
-        $('.lazy').lazyload({
-            effect : "fadeIn",
-            threshold : 100
+        $('.lazy').lazy({
+            effect: "fadeIn",
+            effectTime: 500,
+            threshold: 500
         });
     }
 
