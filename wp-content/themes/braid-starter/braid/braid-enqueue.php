@@ -3,7 +3,7 @@
 // Enqueue styles and script from Gulp Output
 // ---
 
-function cm_starter_scripts() {
+function braid_starter_scripts() {
     // each time the below files are saved, the version fingerprint changes to bust cache
     $clientCSSversion = filemtime(get_template_directory() . '/dist/app.min.css');
     $clientJSversion = filemtime(get_template_directory() . '/dist/app.min.js');
@@ -26,6 +26,6 @@ function cm_starter_scripts() {
     wp_enqueue_script( 'font-awesome', 'https://use.fontawesome.com/8ef1cdd67b.js', [], false);
 }
 
-add_action( 'wp_enqueue_scripts', 'cm_starter_scripts' );
+add_action( 'wp_enqueue_scripts', 'braid_starter_scripts' );
 
 ?>

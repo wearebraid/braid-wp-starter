@@ -15,9 +15,7 @@
 
 	<footer id="colophon" class="site-footer" role="contentinfo">
 		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'braid-starter' ) ); ?>"><?php printf( esc_html__( 'Proudly powered by %s', 'braid-starter' ), 'WordPress' ); ?></a>
-			<span class="sep"> | </span>
-			<?php printf( esc_html__( 'Theme: %1$s by %2$s.', 'braid-starter' ), 'braid-starter', '<a href="https://automattic.com/" rel="designer">Underscores.me</a>' ); ?>
+			&copy; <?php echo date("Y"); ?> - All rights reserved.
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->
