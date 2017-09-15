@@ -1,3 +1,14 @@
+// BASIC STARTER REQUIREMENTS
+window.jQuery = window.$ = require('jquery');
+var lazy = require('./vendor/jquery.lazy.js')
+require('./vendor/skip-link-focus-fix.js')
+
+// ADDITIONAL 3RD PARTY REQUIREMENTS
+// var slick 			= require('slick-carousel');
+// var _ 				= require('underscore');
+// var moment 			= require('moment');
+// var foundation 		= require('foundation-sites'); // Requires: npm install foundation-sites
+
 // Get Viewport Dimensions
 function updateViewportDimensions() {
     var w=window,d=document,e=d.documentElement,g=d.getElementsByTagName('body')[0],x=w.innerWidth||e.clientWidth||g.clientWidth,y=w.innerHeight||e.clientHeight||g.clientHeight;
@@ -135,7 +146,6 @@ jQuery(document).ready(function($) {
     CMStarter.init();
 });
 
-
-jQuery(window).load(function() {
-    CMStarter.windowLoadInit();
-});
+// jQuery(window).load(function() {
+//     // CMStarter.windowLoadInit();
+// });
