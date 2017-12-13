@@ -41,8 +41,8 @@ function braid_add_dashboard_widgets() {
 	$dashboard = $wp_meta_boxes['dashboard']['normal']['core'];
 	
 	// Backup and delete our new dashbaord widget from the end of the array
-	$widget_backup = ['cm_dashboard_widget' => $dashboard['cm_dashboard_widget']];
-	unset($dashboard['cm_dashboard_widget']);
+	$widget_backup = ['braid_dashboard_widget' => $dashboard['braid_dashboard_widget']];
+	unset($dashboard['braid_dashboard_widget']);
 
 	// Merge the two arrays together so our widget is at the beginning
 	$sorted_dashboard = array_merge($widget_backup, $dashboard);
