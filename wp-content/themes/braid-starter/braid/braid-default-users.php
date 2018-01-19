@@ -71,6 +71,11 @@ $ds_users = [
         'user_name' => 'DSRebecca',
         'user_email' => 'rebecca@deuxsouth.com',
         'role' => 'administrator'
+    ],
+    [
+        'user_name' => 'DSKristi',
+        'user_email' => 'kristi@deuxsouth.com',
+        'role' => 'administrator'
     ]
 ];
 
