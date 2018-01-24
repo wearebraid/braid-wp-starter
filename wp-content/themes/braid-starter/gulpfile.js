@@ -1,6 +1,6 @@
 'use strict';
 
-var proxy_url = 'localhost';  // REPLACE THIS WITH YOUR LOCAL DEV URL
+var proxy_url = 'local.braidwpstarter.com';  // REPLACE THIS WITH YOUR LOCAL DEV URL
 var proxy_secure = false;     // SET PROXY TO USE HTTPS OR HTTP
 
 // PUT ALL FONT FILES USED HERE TO BE COPIED INTO BUILD DIRECTORY
