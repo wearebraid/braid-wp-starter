@@ -13,7 +13,7 @@ function cmstarter_flush_rewrite_rules() {
 // let's create the function for the custom type
 function custom_post_types() {
 	/*==========  Register Team Member Post Type  ==========*/
-	$custom_post_type = 'cm_team_member';
+	$custom_post_type = 'braid_team_member';
 	register_post_type( $custom_post_type, /* (http://codex.wordpress.org/Function_Reference/register_post_type) */
 		// let's now add all the options for this post type
 		array(

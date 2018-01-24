@@ -25,7 +25,7 @@ function excerpt($limit) {
 // ---
 
 // button
-function cm_button($atts) {
+function braid_button($atts) {
 	$a = shortcode_atts([
 		'link' => 'link',
 		'href' => 'link',
@@ -37,6 +37,6 @@ function cm_button($atts) {
 	return '<a class="btn" href="' . $link . '">' . $a['text'] .'</a>';
 }
 
-add_shortcode('button', 'cm_button');
+add_shortcode('button', 'braid_button');
 
 ?>

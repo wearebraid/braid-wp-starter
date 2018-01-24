@@ -36,21 +36,21 @@ function debounce(func, wait, immediate) {
 
 
 // Cornerstone Media Namespace
-var CM = CM || {};
+var braid = braid || {};
 
 // utilities
-CM.query = function(selector) {
+braid.query = function(selector) {
     return document.querySelector(selector);
 };
 
-CM.isHome = !!document.getElementsByClassName('home').length;
-CM.isFlexible = !!document.getElementsByClassName('page-template-page-flexible').length;
-CM.hasForm = !!document.getElementsByClassName('gform_wrapper').length;
+braid.isHome = !!document.getElementsByClassName('home').length;
+braid.isFlexible = !!document.getElementsByClassName('page-template-page-flexible').length;
+braid.hasForm = !!document.getElementsByClassName('gform_wrapper').length;
 
 
 
 // Set up namespace
-var CMStarter = CMStarter || {};
+var braidStarter = braidStarter || {};
 
 (function(ns, $win, $, undefined) {
     var $htmlBody = $('html, body');
@@ -134,7 +134,7 @@ var CMStarter = CMStarter || {};
 
 
 
-}(CMStarter = CMStarter || {}, jQuery(window), jQuery));
+}(braidStarter = braidStarter || {}, jQuery(window), jQuery));
 
 
 
@@ -143,9 +143,9 @@ var CMStarter = CMStarter || {};
 
 
 jQuery(document).ready(function($) {
-    CMStarter.init();
+    braidStarter.init();
 });
 
 // jQuery(window).load(function() {
-//     // CMStarter.windowLoadInit();
+//     // braidStarter.windowLoadInit();
 // });

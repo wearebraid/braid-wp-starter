@@ -23,7 +23,7 @@ if( function_exists('acf_add_local_field_group') ):
             // Social Media Tab
             // ---
             [
-                'key' => 'cm_tab_1',
+                'key' => 'braid_tab_1',
                 'label' => 'Social Media',
                 'name' => '',
                 'type' => 'tab',
@@ -78,7 +78,7 @@ if( function_exists('acf_add_local_field_group') ):
             // Organization Info Tab
             // ---
             [
-                'key' => 'cm_tab_2',
+                'key' => 'braid_tab_2',
                 'label' => 'Org/Contact Info',
                 'name' => '',
                 'type' => 'tab',

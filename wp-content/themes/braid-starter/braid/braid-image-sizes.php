@@ -14,19 +14,19 @@ add_image_size('mid-size', 750, 9999, false);
 
 // remove default image thumbnail sizes in wordpress
 // to prevent uploads folder from ballooning
-function cm_remove_default_image_sizes( $sizes) {
+function braid_remove_default_image_sizes( $sizes) {
     unset( $sizes['medium'] );
 	unset( $sizes['medium_large'] );
     unset( $sizes['large'] );
     return $sizes;
 }
-add_filter( 'intermediate_image_sizes_advanced', 'cm_remove_default_image_sizes' );
+add_filter( 'intermediate_image_sizes_advanced', 'braid_remove_default_image_sizes' );
 
 // var_dump( get_intermediate_image_sizes() );
 
 
 // Register Custom Image sizes so user can select from them within the content editor
-function cm_custom_image_sizes( $sizes ) {
+function braid_custom_image_sizes( $sizes ) {
 	return array_merge( $sizes, array(
 		// 'full-bleed' => __('2000px by auto-height'),
 		'container-width' => __('1400px by auto-height'),
@@ -34,6 +34,6 @@ function cm_custom_image_sizes( $sizes ) {
 	) );
 }
 
-add_filter( 'image_size_names_choose', 'cm_custom_image_sizes' );
+add_filter( 'image_size_names_choose', 'braid_custom_image_sizes' );
 
 ?>
