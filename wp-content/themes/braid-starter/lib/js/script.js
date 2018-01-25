@@ -1,10 +1,9 @@
 // BASIC STARTER REQUIREMENTS
-window.jQuery = window.$ = require('jquery');
 var lazy = require('./vendor/jquery.lazy.js')
 require('./vendor/skip-link-focus-fix.js')
 
 // ADDITIONAL 3RD PARTY REQUIREMENTS
-// var slick 			= require('slick-carousel');
+// var slick 			= require('./vendor/slick.js');
 // var _ 				= require('underscore');
 // var moment 			= require('moment');
 // var foundation 		= require('foundation-sites'); // Requires: npm install foundation-sites
