@@ -93,7 +93,6 @@ wp-content/mysql.sql
 
 # wp core (as of 3.4.1)
 /db-config.php
-/index.php
 /license.txt
 /readme.html
 /wp-activate.php
