@@ -7,8 +7,6 @@ if( function_exists('acf_add_options_page') ) {
 	acf_add_options_page();
 }
 
-
-
 // ---
 // Programatically Register Common Fields we use for every build
 // ---
@@ -138,6 +136,3 @@ if( function_exists('acf_add_local_field_group') ):
     ]);
 
 endif;
-
-
-?>

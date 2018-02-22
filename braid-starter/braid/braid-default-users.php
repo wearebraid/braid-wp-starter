@@ -28,59 +28,8 @@ $braid_users = [
     ],
 ];
 
-$bbm_users = [
-    [
-        'user_name' => 'BBMAmanda',
-        'user_email' => 'amanda@agencybbm.com',
-        'role' => 'administrator'
-    ],
-    [
-        'user_name' => 'BBMNic',
-        'user_email' => 'nic@agencybbm.com',
-        'role' => 'administrator'
-    ],
-    [
-        'user_name' => 'BBMMatt',
-        'user_email' => 'matt@agencybbm.com',
-        'role' => 'administrator'
-    ],
-    [
-        'user_name' => 'BBMLauren',
-        'user_email' => 'lauren@agencybbm.com',
-        'role' => 'administrator'
-    ],
-    [
-        'user_name' => 'BBMAshleigh',
-        'user_email' => 'ashleigh@agencybbm.com',
-        'role' => 'administrator'
-    ],
-];
-
-$ds_users = [
-    [
-        'user_name' => 'DSAdmin',
-        'user_email' => 'tanner@deuxsouth.com',
-        'role' => 'administrator'
-    ],
-    [
-        'user_name' => 'DSTori',
-        'user_email' => 'tori@deuxsouth.com',
-        'role' => 'administrator'
-    ],
-    [
-        'user_name' => 'DSRebecca',
-        'user_email' => 'rebecca@deuxsouth.com',
-        'role' => 'administrator'
-    ],
-    [
-        'user_name' => 'DSKristi',
-        'user_email' => 'kristi@deuxsouth.com',
-        'role' => 'administrator'
-    ]
-];
-
-
-// $all_users = array_merge($braid_users, $bbm_users, $ds_users);
+// you can merge users from multiple teams if this is a group project
+// $all_users = array_merge($default_users, $other_users, $even_more_users);
 $all_users = $braid_users;
 
 foreach($all_users as $user) {
@@ -98,9 +47,4 @@ foreach($all_users as $user) {
     } else {
         $random_password = __('User already exists.  Password inherited.');
     }
-
-    // edit user to be admin.
 }
-
-    
-?>

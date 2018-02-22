@@ -38,5 +38,3 @@ function braid_button($atts) {
 }
 
 add_shortcode('button', 'braid_button');
-
-?>

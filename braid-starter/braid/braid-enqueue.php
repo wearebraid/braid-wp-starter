@@ -27,5 +27,3 @@ function braid_starter_scripts() {
 }
 
 add_action( 'wp_enqueue_scripts', 'braid_starter_scripts' );
-
-?>

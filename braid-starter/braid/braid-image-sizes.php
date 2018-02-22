@@ -36,4 +36,3 @@ function braid_custom_image_sizes( $sizes ) {
 
 add_filter( 'image_size_names_choose', 'braid_custom_image_sizes' );
 
-?>

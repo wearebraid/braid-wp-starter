@@ -3,10 +3,10 @@
 // Register Custom Post Types
 
 // Flush rewrite rules for custom post types
-add_action( 'after_switch_theme', 'cmstarter_flush_rewrite_rules' );
+add_action( 'after_switch_theme', 'braid_flush_rewrite_rules' );
 
 // Flush your rewrite rules
-function cmstarter_flush_rewrite_rules() {
+function braid_flush_rewrite_rules() {
 	flush_rewrite_rules();
 }
 
@@ -18,21 +18,21 @@ function custom_post_types() {
 		// let's now add all the options for this post type
 		array(
 			'labels'              => array(
-				'name'               => __( 'Team Members', 'cmstarter' ),
-				'singular_name'      => __( 'Team Member', 'cmstarter' ),
-				'all_items'          => __( 'All Team Members', 'cmstarter' ),
-				'add_new'            => __( 'Add New', 'cmstarter' ),
-				'add_new_item'       => __( 'Add New Team Member', 'cmstarter' ),
-				'edit'               => __( 'Edit', 'cmstarter' ),
-				'edit_item'          => __( 'Edit Team Member', 'cmstarter' ),
-				'new_item'           => __( 'New Team Member', 'cmstarter' ),
-				'view_item'          => __( 'View Team Member', 'cmstarter' ),
-				'search_items'       => __( 'Search Team Members', 'cmstarter' ),
-				'not_found'          => __( 'Nothing found in the Database.', 'cmstarter' ),
-				'not_found_in_trash' => __( 'Nothing found in Trash', 'cmstarter' ),
+				'name'               => __( 'Team Members', 'braid' ),
+				'singular_name'      => __( 'Team Member', 'braid' ),
+				'all_items'          => __( 'All Team Members', 'braid' ),
+				'add_new'            => __( 'Add New', 'braid' ),
+				'add_new_item'       => __( 'Add New Team Member', 'braid' ),
+				'edit'               => __( 'Edit', 'braid' ),
+				'edit_item'          => __( 'Edit Team Member', 'braid' ),
+				'new_item'           => __( 'New Team Member', 'braid' ),
+				'view_item'          => __( 'View Team Member', 'braid' ),
+				'search_items'       => __( 'Search Team Members', 'braid' ),
+				'not_found'          => __( 'Nothing found in the Database.', 'braid' ),
+				'not_found_in_trash' => __( 'Nothing found in Trash', 'braid' ),
 				'parent_item_colon'  => ''
 			),
-			'description'         => __( 'PillarAught Team Members', 'cmstarter' ),
+			'description'         => __( 'PillarAught Team Members', 'braid' ),
 			'public'              => true,
 			'publicly_queryable'  => true,
 			'exclude_from_search' => false,
@@ -68,8 +68,5 @@ function custom_post_types() {
 
 }
 
-
 // adding the function to the WordPress init
 add_action( 'init', 'custom_post_types');
-
-?>

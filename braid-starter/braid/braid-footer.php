@@ -9,5 +9,3 @@ function social_links() {
 }
 
 add_action('wp_footer', 'social_links');
-
-?>

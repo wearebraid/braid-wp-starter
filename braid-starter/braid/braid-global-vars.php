@@ -18,5 +18,3 @@ if( class_exists('acf') ) {
     $genAddress = get_field('address', 'option');
     $addressGoogleFormat = "https://maps.google.com/?daddr=" . str_replace([", ", " "], "+", $genAddress);    
 }
-
-?>

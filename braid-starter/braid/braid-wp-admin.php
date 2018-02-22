@@ -15,13 +15,13 @@ add_action( 'admin_menu', 'remove_menus' );
 
 
 // Ability to upload SVGs and .VCF to Media
-function cc_mime_types($mimes) {
+function braid_mime_types($mimes) {
   $mimes['svg'] = 'image/svg+xml';
   $mimes['vcf'] = 'text/x-vcard';
 
   return $mimes;
 }
-add_filter('upload_mimes', 'cc_mime_types');
+add_filter('upload_mimes', 'braid_mime_types');
 
 
 
@@ -65,7 +65,3 @@ function braid_dash_maintenance_notes() {
         </p>
     <?php
 }
-
-
-
-?>
