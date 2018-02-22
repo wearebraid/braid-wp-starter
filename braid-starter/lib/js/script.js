@@ -1,12 +1,9 @@
 // BASIC STARTER REQUIREMENTS
-var lazy = require('./vendor/jquery.lazy.js')
+var lazy = require('jquery-lazy')
 require('./vendor/skip-link-focus-fix.js')
 
-// ADDITIONAL 3RD PARTY REQUIREMENTS
-// var slick 			= require('./vendor/slick.js');
-// var _ 				= require('underscore');
-// var moment 			= require('moment');
-// var foundation 		= require('foundation-sites'); // Requires: npm install foundation-sites
+// ADDITIONAL 3RD PARTY REQUIREMENTS EXAMPLE
+// var slick = require('slick'); // Requires: npm install slick
 
 // Get Viewport Dimensions
 function updateViewportDimensions() {

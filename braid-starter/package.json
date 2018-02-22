@@ -30,6 +30,7 @@
     "gulp-sourcemaps": "^2.6.1",
     "gulp-uglify": "^2.1.2",
     "gulp-watch": "^4.3.10",
+    "jquery-lazy": "^1.7.7",
     "jshint": "^2.9.5",
     "jshint-stylish": "^2.2.1",
     "moment": "^2.18.1",
