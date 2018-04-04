@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "webpack --hide-modules --watch",
-    "build": "cross-env NODE_ENV=production webpack --hide-modules"
+    "build": "webpack --hide-modules --optimize-minimize --progress"
   },
   "author": "Braid",
   "license": "ISC",
