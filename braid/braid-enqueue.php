@@ -5,6 +5,12 @@
 
 function braid_starter_scripts()
 {
+    // each time the below files are saved, the version fingerprint changes to bust cache
+    // $clientCSSversion = filemtime(get_template_directory() . '/' . $site_css);
+    $styleCSSVersion = filemtime(get_template_directory() . '/dist/build.css');
+
+    // default style.css which has a normalize
+    
     wp_enqueue_style(
         'theme-fonts',
         'https://fonts.googleapis.com/css?family=Open+Sans:300,400,700',
@@ -15,8 +21,10 @@ function braid_starter_scripts()
         'braid-starter-style',
         get_template_directory_uri() . '/dist/build.css',
         ['theme-fonts'],
-        filemtime(get_template_directory() . '/dist/build.css')
+        $styleCSSVersion
     );
+
+    wp_enqueue_script('fontawesome-5', 'https://use.fontawesome.com/releases/v5.0.6/js/all.js');
     
     ob_start();
     include dirname(__FILE__).'/../dist/manifest.json';
