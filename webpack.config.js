@@ -18,8 +18,8 @@ const webpackData = {
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: process.argv.includes('-p') ? '[name].[chunkhash].js' : '[name].js',
-    chunkFilename: process.argv.includes('-p') ? '[id].[chunkhash].js' : '[id].js',
+    filename: '[name].[chunkhash].js',
+    chunkFilename: '[id].[chunkhash].js',
 		publicPath: '/app/themes/southern-eagle/dist/'
   },
   resolve: {
