@@ -2,25 +2,23 @@ const webpack = require('webpack')
 let path = require('path')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const autoprefixer = require('autoprefixer')
 
 const localUrl = 'http://local.braidwpstarter.com/'
+const publicPath = '/wp-content/themes/braid-wp-starter/'
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
 
 const webpackData = {
-  entry: {
-    main: './lib/js/app.js'
-  },
+  entry: ['es6-promise/auto', './lib/js/app.js'],
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].[chunkhash].js',
     chunkFilename: '[id].[chunkhash].js',
-		publicPath: '/app/themes/southern-eagle/dist/'
+		publicPath: publicPath
   },
   resolve: {
     extensions: ['.js', '.vue', '.json'],
@@ -92,9 +90,8 @@ const webpackData = {
       },
       {
         test: /\.js$/,
-        loader: 'babel-loader',
-        include: ['lib/js'],
-        exclude: /(node_modules|bower_components)/
+        exclude: /node_modules/,
+        loader: 'babel-loader'
       }
     ]
   },
@@ -141,40 +138,28 @@ const webpackData = {
       name: 'manifest',
       chunks: ['vendor']
     }),
-  ],
-  devtool: 'inline-source-map'
-}
-
-if (process.env === 'production') {
-  webpackData.plugins.push(
-    new UglifyJSPlugin({
-      sourceMap: true,
-      uglifyOptions: { ecma: 8 },
-    })
-  )
-} else {
-  webpackData.plugins.push(
-    new BrowserSyncPlugin({
-      host: 'localhost',
-      proxy: localUrl,
-      files: [
-        {
-          match: [
-            '**/*.php'
-          ],
-          fn: function(event, file) {
-            if (event === "change") {
-              const bs = require('browser-sync').get('bs-webpack-plugin');
-              bs.reload();
+    new BrowserSyncPlugin(
+      {
+        host: 'localhost',
+        proxy: localUrl,
+        files: [
+          {
+            match: ['**/*.php'],
+            fn: function(event, file) {
+              if (event === "change") {
+                const bs = require('browser-sync').get('bs-webpack-plugin');
+                bs.reload();
+              }
             }
           }
-        }
-      ]
-    },
-    {
-      injectCss: true
-    })
-  )
+        ]
+      },
+      {
+        injectCss: true
+      }
+    )
+  ],
+  devtool: 'inline-source-map'
 }
 
 module.exports = webpackData
