@@ -2,28 +2,13 @@
 // @import "//fonts.googleapis.com/css?family=Lato:400,700|Muli:400,700";
 
 // utilities
-@import "modules/variables";
-@import "modules/custom-mixins";
-
-// custom version of tachyons that uses breakpoint variables
-@import "vendor/tachyons";
-
-// 3rd party
-// @import "../../node_modules/foundation-sites/scss/foundation.scss"; // Requires: npm install foundation-sites
-// @import "../../node_modules/font-awesome/scss/font-awesome.scss";
-// @import '../../node_modules/slick-carousel/slick/slick.scss';
-// @import "vendor/remodal";
-// @import "vendor/remodal-default-theme";
-
-// Cornerstone Media Core Flexible Content modules
-@import "braid_modules/braid-m-fullbleedimage";
+@import "utilities/variables";
+@import "utilities/custom-mixins";
 
 // all the rest
 @import "modules/typography";
 @import "modules/global";
-@import "modules/content";
+@import "modules/header";
+@import "modules/footer";
 @import "modules/forms";
-@import "modules/banner";
-@import "modules/modules";
-@import "modules/pages";
 

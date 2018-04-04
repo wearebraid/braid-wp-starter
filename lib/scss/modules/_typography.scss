@@ -1,7 +1,7 @@
 body {
     font-family: $body;
-    line-height: 1.5;
-    font-size: 15px;
+    line-height: 1.4;
+    font-size: 16px;
     color: $bodyCopy;
 
     @include mobile {
@@ -13,13 +13,13 @@ h1, .hed1, h2, .hed2, h3, .hed3, h4, .hed4, h5, .hed5, h6, .hed6 {
     margin-top: .5em;
     margin-bottom: .5em;
     color: $headingCopy;
-    text-transform: uppercase;
 }
 
 h1, .hed1 {
     font-size: 3.5rem;
     line-height: 1.2;
     height: auto;
+
     @include mobile {
         font-size: 2rem;
     }
@@ -27,7 +27,7 @@ h1, .hed1 {
 h2, .hed2 {
     font-size: 2.25rem;
     line-height: 1.2;
-    //font-weight: 800;
+
     @include mobile {
         font-size: 1.625rem;
     }
@@ -35,6 +35,7 @@ h2, .hed2 {
 h3, .hed3 {
     font-size: 1.75rem;
     line-height: 1.333;
+
     @include mobile {
         font-size: 1.375rem;
     }
@@ -70,6 +71,7 @@ p {
 a {
     text-decoration: none;
     color: $link;
+
     &:hover {
         cursor: pointer;
         color: $link;
@@ -99,7 +101,6 @@ ul, ol {
     list-style-position: outside;
 }
 
-
 // buttons
 #page input[type="submit"], .btn, #page .button {
     line-height: 1;
@@ -119,17 +120,21 @@ ul, ol {
     vertical-align: middle;
     white-space: nowrap;
     transition: all .1s ease-in-out;
+
     &:focus, &:visited {
         color: white;
     }
+
     a {
         color: white;
+
         &:hover {
             text-decoration: none;
             background: black;
             color: white;
         }
     }
+
     &:hover {
         background-color: rgba(black, .7);
         text-decoration: none !important;
@@ -140,6 +145,7 @@ ul, ol {
     &.alt {
         width: 100%;
         background-color: transparent;
+
         &:hover {
             background-color: rgba(black, .2);
         }
@@ -149,6 +155,7 @@ ul, ol {
         background-color: transparent;
         color: $bodyCopy;
         border-color: $bodyCopy;
+        
         &:hover {
             background-color: rgba(black, .4);
             color: $bodyCopy;

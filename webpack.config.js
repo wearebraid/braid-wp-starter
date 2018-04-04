@@ -54,8 +54,39 @@ const webpackData = {
         loader: 'vue-loader',
         options: {
           loaders: {
-            'scss': 'vue-style-loader!css-loader!sass-loader',
-            'sass': 'vue-style-loader!css-loader!sass-loader?indentedSyntax'
+            'scss': [
+              'vue-style-loader',
+              'css-loader',
+              'sass-loader',
+              {
+                loader: 'sass-resources-loader',
+                options: {
+                  resources: [
+                    './lib/scss/utilities/_variables.scss',
+                    './lib/scss/utilities/_custom-mixins.scss'
+                  ]
+                },
+              }
+            ],
+            'sass': [
+              'vue-style-loader',
+              'css-loader',
+              {
+                loader: 'sass-loader',
+                options: {
+                  indentedSyntax: true
+                }
+              },
+              {
+                loader: 'sass-resources-loader',
+                options: {
+                  resources: [
+                    './lib/scss/utilities/_variables.scss',
+                    './lib/scss/utilities/_custom-mixins.scss'
+                  ]
+                },
+              }
+            ]
           }
         }
       },
