@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "webpack --hide-modules --watch",
-    "build": "webpack -p --hide-modules --optimize-minimize --progress",
-    "analyze": "webpack -p --hide-modules --optimize-minimize --progress"
+    "build": "NODE_ENV=production webpack --hide-modules --progress",
+    "analyze": "NODE_ENV=production webpack --hide-modules --progress --define analyze"
   },
   "author": "Braid",
   "license": "ISC",
@@ -40,7 +40,6 @@
   },
   "dependencies": {
     "ajv": "^6.2.1",
-    "axios": "^0.18.0",
     "babel-loader": "^7.1.4",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "browser-sync-webpack-plugin": "^2.0.1",

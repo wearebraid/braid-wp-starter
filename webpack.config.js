@@ -4,6 +4,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const autoprefixer = require('autoprefixer')
+let UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
@@ -98,7 +99,6 @@ const webpackData = {
     ]
   },
   plugins: [
-    new BundleAnalyzerPlugin(),
     new CleanWebpackPlugin('./dist', {
       root: __dirname,
       verbose: true,
@@ -113,11 +113,6 @@ const webpackData = {
       })
     },
     new ExtractTextPlugin('build.css'),
-    new webpack.DefinePlugin({
-      'process.env': {
-        'NODE_ENV': process.argv.includes('-p') ? `'production'` : `'development'`
-      }
-    }),
     new webpack.LoaderOptionsPlugin({
       minimize: process.argv.includes('-p'),
       options: {
@@ -161,8 +156,46 @@ const webpackData = {
         injectCss: true
       }
     )
-  ],
-  devtool: 'inline-source-map'
+  ]
+}
+
+if (process.env.NODE_ENV === 'production') {
+  webpackData.plugins.push(
+    new webpack.optimize.UglifyJsPlugin({
+      sourceMap: true,
+      uglifyOptions: { ecma: 8 },
+    })
+  )
+} else {
+  webpackData.devtool = 'inline-source-map'
+  webpackData.plugins.push(
+    new BrowserSyncPlugin({
+      host: 'localhost',
+      proxy: localUrl,
+      files: [
+        {
+          match: [
+            '**/*.php'
+          ],
+          fn: function (event, file) {
+            if (event === "change") {
+              const bs = require('browser-sync').get('bs-webpack-plugin');
+              bs.reload();
+            }
+          }
+        }
+      ]
+    },
+      {
+        injectCss: true
+      })
+  )
+}
+
+if (process.argv.includes('analyze')) {
+  webpackData.plugins.push(
+    new BundleAnalyzerPlugin(),
+  )
 }
 
 module.exports = webpackData
