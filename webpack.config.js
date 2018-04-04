@@ -5,6 +5,8 @@ const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const autoprefixer = require('autoprefixer')
 
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+
 const localUrl = 'http://local.braidwpstarter.com/'
 const publicPath = '/wp-content/themes/braid-wp-starter/'
 
@@ -96,6 +98,7 @@ const webpackData = {
     ]
   },
   plugins: [
+    new BundleAnalyzerPlugin(),
     new CleanWebpackPlugin('./dist', {
       root: __dirname,
       verbose: true,
