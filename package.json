@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "webpack --hide-modules --watch",
     "build": "webpack -p --hide-modules --optimize-minimize --progress",
-    "analyze": "webpack -p --optimize-minimize --progress"
+    "analyze": "webpack -p --hide-modules --optimize-minimize --progress"
   },
   "author": "Braid",
   "license": "ISC",
