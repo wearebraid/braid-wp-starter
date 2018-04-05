@@ -135,27 +135,7 @@ const webpackData = {
     new webpack.optimize.CommonsChunkPlugin({
       name: 'manifest',
       chunks: ['vendor']
-    }),
-    new BrowserSyncPlugin(
-      {
-        host: 'localhost',
-        proxy: localUrl,
-        files: [
-          {
-            match: ['**/*.php'],
-            fn: function(event, file) {
-              if (event === "change") {
-                const bs = require('browser-sync').get('bs-webpack-plugin');
-                bs.reload();
-              }
-            }
-          }
-        ]
-      },
-      {
-        injectCss: true
-      }
-    )
+    })
   ]
 }
 
