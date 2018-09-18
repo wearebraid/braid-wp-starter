@@ -9,6 +9,9 @@
  * @package braid-starter
  */
 
+global $jsextract;
+global $cssextract;
+
 ?>
 
 	</div><!-- #content -->
@@ -21,6 +24,8 @@
 </div><!-- #page -->
 
 <?php wp_footer(); ?>
+<?php echo $jsextract; ?>
+<?php echo $cssextract; ?>
 
 </body>
 </html>
