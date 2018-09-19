@@ -174,7 +174,7 @@ if (process.env.NODE_ENV === 'production') {
 
 if (process.argv.includes('analyze')) {
   webpackData.plugins.push(
-    new BundleAnalyzerPlugin(),
+    new BundleAnalyzerPlugin()
   )
 }
 
