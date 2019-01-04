@@ -33,4 +33,7 @@ h1 {
   padding: 15px;
   border: 1px solid #999;
 }
+.container {
+  background: url('../../img/logo-trans.svg') no-repeat center center;
+}
 </style>

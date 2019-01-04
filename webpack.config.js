@@ -1,3 +1,20 @@
+/**
+ * Local Parameters
+ */
+
+const localDomain = 'local.braidwpstarter.com'
+const publicPath = '/wp-content/themes/braid-wp-starter/'
+const protocol = 'http://'
+const entryPoints = {
+  app: './lib/js/app.js',
+  // external_use: './lib/scss/external_use.scss', // EXAMPLE OF A SEPARATE SCSS COMPILED OUTPUT
+}
+
+/**
+ * You should not need to modify anything below here unless you need a custom build config
+ */
+
+const webpack = require('webpack')
 const path = require('path')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const ExtractCssChunks = require("extract-css-chunks-webpack-plugin")
@@ -6,12 +23,9 @@ const CleanWebpackPlugin = require('clean-webpack-plugin')
 const FixStyleOnlyEntriesPlugin = require("webpack-fix-style-only-entries")
 const WriteFilePlugin = require('write-file-webpack-plugin')
 
-
-const localDomain = 'local.braidwpstarter.com'
-const publicPath = '/wp-content/themes/braid-wp-starter/'
-
+const secure = protocol === 'https://'
 const buildPath = 'dist'
-const localUrl = `http://${localDomain}`
+const localUrl = `${protocol}${localDomain}`
 const devPort = 5000
 
 function resolve (dir) {
@@ -19,15 +33,12 @@ function resolve (dir) {
 }
 
 module.exports = (env, argv) => ({
-  entry: {
-    app: './lib/js/app.js',
-    // external_use: './lib/scss/external_use.scss', // EXAMPLE OF A SEPARATE SCSS COMPILED OUTPUT
-  },
+  entry: entryPoints,
   output: {
     path: path.resolve(__dirname, buildPath),
     filename: argv.mode !== 'production' ? '[name].js' : '[name].[chunkhash].js',
     chunkFilename: argv.mode !== 'production' ? '[name].js' : '[name].[chunkhash].js',
-    publicPath: argv.mode !== 'production' ? `http://${localDomain}:${devPort}${publicPath}${buildPath}/` : publicPath
+    publicPath: argv.mode !== 'production' ? `${protocol}${localDomain}:${devPort}${publicPath}${buildPath}/` : `${publicPath}${buildPath}/`
   },
   resolve: {
     extensions: ['.js', '.vue', '.json'],
@@ -39,7 +50,7 @@ module.exports = (env, argv) => ({
   devServer: {
     port: devPort,
     public: `${localDomain}:${devPort}`,
-    publicPath: `http://${localDomain}:${devPort}${publicPath}${buildPath}/`,
+    publicPath: `${protocol}${localDomain}:${devPort}${publicPath}${buildPath}/`,
     headers: { "Access-Control-Allow-Origin": "*" },
     proxy: {
       '/': {
@@ -132,8 +143,11 @@ module.exports = (env, argv) => ({
     new ExtractCssChunks(
       {
         filename: "[name].css",
-        chunkFilename: "[id].css"
+        chunkFilename: "[id].css",
       }
     ),
+    new webpack.LoaderOptionsPlugin({
+      minimize: argv.mode === 'production',
+    }),
   ],
 });
