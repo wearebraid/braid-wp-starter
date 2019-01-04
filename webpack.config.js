@@ -26,7 +26,7 @@ function resolve (dir) {
  */
 
 const localDomain = process.env.LOCAL_DOMAIN || 'localhost'
-const secure = process.env.SECURE || false
+const secure = process.env.SECURE ? process.env.SECURE === 'true' : false
 const protocol = secure ? 'https://' : 'http://'
 const devPort = process.env.PORT || 5000
 const buildPath = process.env.BUILD_PATH || 'dist'
@@ -60,10 +60,10 @@ module.exports = (env, argv) => ({
     public: `${localDomain}:${devPort}`,
     publicPath: `${protocol}${localDomain}:${devPort}${publicPath}${buildPath}/`,
     headers: { "Access-Control-Allow-Origin": "*" },
+    https: secure,
     proxy: {
       '/': {
         target: localUrl,
-        secure: false,
         changeOrigin: true,
         autoRewrite: true,
         headers: {
