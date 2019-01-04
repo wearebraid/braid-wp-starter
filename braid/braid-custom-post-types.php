@@ -1,6 +1,43 @@
 <?php
-// ---
-// Register Custom Post Types
+/**
+ * Register Custom Post Types
+ */
+
+function theme_custom_post_types()
+{
+    $custom_post_types = [
+        'team_member' => [
+            'singular' => 'Team Member',
+            'plural' => 'Team Members',
+            'menu_icon' => 'dashicons-groups',
+            'overrides' => [],
+            'labels' => []
+        ],
+    ];
+
+    $taxonomies = [
+        'team-category' => [
+            'post_types' => ['team_member'],
+            'singular' => 'Category',
+            'plural' => 'Categories',
+            'overrides' => [
+              'hierarchical' => true,
+            ],
+            'labels' => []
+        ],
+    ];
+
+    foreach ($custom_post_types as $pt => $data) {
+        braid_create_post_types($pt, $data);
+    }
+    foreach ($taxonomies as $tax => $data) {
+        braid_create_taxonomy($tax, $data);
+    }
+}
+
+/**
+ * HELPER FUNCTIONS FOR CREATE CUSTOM POST TYPES BELOW
+ */
 
 function braid_create_post_types($post_type, $data, $enable_capabilities = false)
 {
@@ -136,39 +173,4 @@ function braid_create_taxonomy($taxonomy, $data)
     }
     register_taxonomy($taxonomy, $data['post_types'], $args);
 }
-
-// let's create the function for the custom type
-function theme_custom_post_types()
-{
-    $custom_post_types = [
-        'team_member' => [
-            'singular' => 'Team Member',
-            'plural' => 'Team Members',
-            'menu_icon' => 'dashicons-groups',
-            'overrides' => [],
-            'labels' => []
-        ],
-    ];
-
-    $taxonomies = [
-        'team-category' => [
-            'post_types' => ['team_member'],
-            'singular' => 'Category',
-            'plural' => 'Categories',
-            'overrides' => [
-              'hierarchical' => true,
-            ],
-            'labels' => []
-        ],
-    ];
-
-    foreach ($custom_post_types as $pt => $data) {
-        braid_create_post_types($pt, $data);
-    }
-    foreach ($taxonomies as $tax => $data) {
-        braid_create_taxonomy($tax, $data);
-    }
-}
-
-// adding the function to the WordPress init
 add_action('init', 'theme_custom_post_types');
