@@ -32,26 +32,6 @@ function excerpt($limit) {
 }
 
 
-
-// ---
-// Shortcodes
-// ---
-
-// button
-function braid_button($atts) {
-	$a = shortcode_atts([
-		'link' => 'link',
-		'href' => 'link',
-		'text' => 'text'
-	], $atts);
-
-	$link = ($a['link'] === 'link') ? $a['href'] : $a['link'];
-
-	return '<a class="btn" href="' . $link . '">' . $a['text'] .'</a>';
-}
-
-add_shortcode('button', 'braid_button');
-
 function extract_inline_scripts_to_footer($output, $tag, $attr)
 {
     global $jsextract;
