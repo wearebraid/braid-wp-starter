@@ -32,7 +32,7 @@ module.exports = (env, argv) => ({
       '@': resolve('src')
     }
   },
-  devtool: argv.mode !== 'production' ? 'source-map' : false,
+  devtool: argv.mode !== 'production' ? 'inline-source-map' : false,
   module: {
     rules: [
       {
@@ -42,13 +42,13 @@ module.exports = (env, argv) => ({
           {
             loader: 'css-loader',
             options: { 
-              sourceMap: argv.mode !== 'production'
+              sourceMap: true
             },
           },
           {
             loader: 'postcss-loader',
             options: { 
-              sourceMap: argv.mode !== 'production',
+              sourceMap: true,
               plugins: () => [require('autoprefixer')({
                 'browsers': ['> 1%', 'last 2 versions']
               })],
@@ -57,7 +57,7 @@ module.exports = (env, argv) => ({
           {
             loader: 'sass-loader',
             options: { 
-              sourceMap: argv.mode !== 'production',
+              sourceMap: true,
               plugins: () => [require('autoprefixer')({
                 'browsers': ['> 1%', 'last 2 versions']
               })],
@@ -111,6 +111,6 @@ module.exports = (env, argv) => ({
       host: 'localhost',
       proxy: localUrl,
       files: ['**/*.php']
-    }, { injectCss: true } )
+    }, { injectCss: true } ),
   ],
 });
