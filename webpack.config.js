@@ -1,14 +1,18 @@
-const webpack = require('webpack')
 const path = require('path')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
-const MiniCssExtractPlugin = require("mini-css-extract-plugin")
-const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
+const ExtractCssChunks = require("extract-css-chunks-webpack-plugin")
 const ManifestPlugin = require('webpack-manifest-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const FixStyleOnlyEntriesPlugin = require("webpack-fix-style-only-entries")
+const WriteFilePlugin = require('write-file-webpack-plugin')
 
-const localUrl = 'http://local.braidwpstarter.com/'
+
+const localDomain = 'local.braidwpstarter.com'
 const publicPath = '/wp-content/themes/braid-wp-starter/'
+
+const buildPath = 'dist'
+const localUrl = `http://${localDomain}`
+const devPort = 5000
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
@@ -20,10 +24,10 @@ module.exports = (env, argv) => ({
     // external_use: './lib/scss/external_use.scss', // EXAMPLE OF A SEPARATE SCSS COMPILED OUTPUT
   },
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, buildPath),
     filename: argv.mode !== 'production' ? '[name].js' : '[name].[chunkhash].js',
     chunkFilename: argv.mode !== 'production' ? '[name].js' : '[name].[chunkhash].js',
-    publicPath: publicPath
+    publicPath: argv.mode !== 'production' ? `http://${localDomain}:${devPort}${publicPath}${buildPath}/` : publicPath
   },
   resolve: {
     extensions: ['.js', '.vue', '.json'],
@@ -32,13 +36,34 @@ module.exports = (env, argv) => ({
       '@': resolve('src')
     }
   },
+  devServer: {
+    port: devPort,
+    public: `${localDomain}:${devPort}`,
+    publicPath: `http://${localDomain}:${devPort}${publicPath}${buildPath}/`,
+    headers: { "Access-Control-Allow-Origin": "*" },
+    proxy: {
+      '/': {
+        target: localUrl,
+        secure: false,
+        changeOrigin: true,
+        autoRewrite: true,
+        headers: {
+          'X-ProxiedBy-Webpack': true,
+        },
+      },
+    },
+    overlay: {
+      errors: true,
+      warnings: false,
+    },
+  },
   devtool: argv.mode !== 'production' ? 'inline-source-map' : false,
   module: {
     rules: [
       {
         test: /\.(sa|sc|c)ss$/,
         use: [
-          MiniCssExtractPlugin.loader,
+          ExtractCssChunks.loader,
           {
             loader: 'css-loader',
             options: { 
@@ -99,18 +124,16 @@ module.exports = (env, argv) => ({
     }
   },
   plugins: [
+    new WriteFilePlugin({ test: /^(?!.*(hot)).*/ }),
     new FixStyleOnlyEntriesPlugin(),
     new VueLoaderPlugin(),
-    new ManifestPlugin({ publicPath: `${publicPath}dist/` }),
-    new CleanWebpackPlugin('./dist', { root: __dirname, dry: false }),
-    new MiniCssExtractPlugin({
-      filename: '[name].css',
-      chunkFilename: '[name].css',
-    }),
-    new BrowserSyncPlugin({
-      host: 'localhost',
-      proxy: localUrl,
-      files: ['**/*.php']
-    }, { injectCss: true } ),
+    new ManifestPlugin({ publicPath: `${publicPath}${buildPath}/` }),
+    new CleanWebpackPlugin(`./${buildPath}`, { root: __dirname, dry: false }),
+    new ExtractCssChunks(
+      {
+        filename: "[name].css",
+        chunkFilename: "[id].css"
+      }
+    ),
   ],
 });
