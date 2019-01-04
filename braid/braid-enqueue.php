@@ -12,29 +12,32 @@ function braid_starter_scripts()
     wp_enqueue_script('fontawesome-5', 'https://use.fontawesome.com/releases/v5.0.6/js/all.js');
     
     $manifestRequires = ['jquery', 'fontawesome-5'];
-    $manifestIgnore = ['external_use.css']; // IGNORE THESE CHUNKS FROM MANIFEST
-    
+
+    /**
+     * ONLY THESE KEYS WILL BE IMPORTED FROM THE MANIFEST
+     */
+    $manifestRestrict = ['vendor.js', 'app.js', 'app.css'];
+
     if (file_exists(dirname(__FILE__).'/../dist/manifest.json')) {
         ob_start();
         include dirname(__FILE__).'/../dist/manifest.json';
         $manifest = ob_get_clean();
         $registeredScripts = [];
         foreach (json_decode($manifest) as $key => $manifestFile) {
-            if (in_array($key, $manifestIgnore)) {
+            if (!in_array($key, $manifestRestrict)) {
                 continue;
             }
-            if (substr($manifestFile, -3) == '.js') {
-                $chunk = explode('.', $manifestFile);
-                $registeredScripts[] = 'site-script-' . $chunk[0];
+            if (substr($key, -3) == '.js') {
+                $registeredScripts[] = $key;
                 wp_register_script(
-                    'site-script-' . $chunk[0],
+                    $key,
                     $manifestFile,
                     $manifestRequires,
                     '1.0',
                     true
                 );
-                $manifestRequires = array('site-script-' . $chunk[0]);
-            } elseif (substr($manifestFile, -4) == '.css') {
+                $manifestRequires = array($key);
+            } elseif (substr($key, -4) == '.css') {
                 wp_enqueue_style($key, $manifestFile, [], filemtime(get_template_directory() . '/dist/' . basename($manifestFile)));
             }
         }
