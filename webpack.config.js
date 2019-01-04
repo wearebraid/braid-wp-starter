@@ -3,8 +3,7 @@
  */
 
 const localDomain = 'local.braidwpstarter.com'
-const publicPath = '/wp-content/themes/braid-wp-starter/'
-const protocol = 'http://'
+const secure = false
 const entryPoints = {
   app: './lib/js/app.js',
   // external_use: './lib/scss/external_use.scss', // EXAMPLE OF A SEPARATE SCSS COMPILED OUTPUT
@@ -23,14 +22,20 @@ const CleanWebpackPlugin = require('clean-webpack-plugin')
 const FixStyleOnlyEntriesPlugin = require("webpack-fix-style-only-entries")
 const WriteFilePlugin = require('write-file-webpack-plugin')
 
-const secure = protocol === 'https://'
-const buildPath = 'dist'
-const localUrl = `${protocol}${localDomain}`
-const devPort = 5000
+function currentDir () {
+  const dir = __dirname.split('/')
+  return dir[dir.length - 1]
+}
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
+
+const protocol = secure ? 'https://' : 'http://'
+const publicPath = `/wp-content/themes/${currentDir()}/`
+const buildPath = 'dist'
+const localUrl = `${protocol}${localDomain}`
+const devPort = 5000
 
 module.exports = (env, argv) => ({
   entry: entryPoints,

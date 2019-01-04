@@ -7,6 +7,7 @@
     "lib": "lib"
   },
   "scripts": {
+    "start": "npm run dev",
     "dev": "webpack-dev-server --mode development --hide-modules --hot",
     "build": "webpack --mode production --hide-modules --progress",
     "analyze": "webpack --mode production --hide-modules --progress --define analyze"
