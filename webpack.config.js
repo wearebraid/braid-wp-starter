@@ -10,6 +10,7 @@ const ManifestPlugin = require('webpack-manifest-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const FixStyleOnlyEntriesPlugin = require("webpack-fix-style-only-entries")
 const WriteFilePlugin = require('write-file-webpack-plugin')
+const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
 require('dotenv').config()
 
 function currentDir () {
@@ -157,5 +158,20 @@ module.exports = (env, argv) => ({
     new webpack.LoaderOptionsPlugin({
       minimize: argv.mode === 'production',
     }),
+    new BrowserSyncPlugin({
+      host: 'localhost',
+      proxy: localUrl,
+      files: [
+        {
+          match: [ '**/*.php' ],
+          fn: function (event, file) {
+            if (event === "change") {
+              const bs = require('browser-sync').get('bs-webpack-plugin');
+              bs.reload();
+            }
+          }
+        }
+      ]
+    }, { injectCss: true, reload: false })
   ],
 });
