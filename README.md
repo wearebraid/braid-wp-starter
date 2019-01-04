@@ -32,7 +32,6 @@ To build minified assets ready for production run  `npm run build`
 LOCAL_DOMAIN=localhost
 
 ## ENTRY POINTS FOR WHAT YOU WANT WEBPACK TO COMPILE
-## IF ADDING NEW ENTRY POINTS, YOU WILL NEED TO INCLUDE THEM IN `braid-enqueue.php` => $manifestRestrict
 ENTRY_POINTS={ "app": "./lib/js/app.js" }
 
 ## BUILD DESTINATION FOR FILES

@@ -15,8 +15,9 @@ function braid_starter_scripts()
 
     /**
      * ONLY THESE KEYS WILL BE IMPORTED FROM THE MANIFEST
+     * IF EMPTY, IT WILL IMPORT ALL JS AND CSS FILES
      */
-    $manifestRestrict = ['vendor.js', 'app.js', 'app.css'];
+    $manifestRestrict = [];
 
     if (file_exists(dirname(__FILE__).'/../dist/manifest.json')) {
         ob_start();
@@ -24,7 +25,7 @@ function braid_starter_scripts()
         $manifest = ob_get_clean();
         $registeredScripts = [];
         foreach (json_decode($manifest) as $key => $manifestFile) {
-            if (!in_array($key, $manifestRestrict)) {
+            if (count($manifestRestrict) > 0 && !in_array($key, $manifestRestrict)) {
                 continue;
             }
             if (substr($key, -3) == '.js') {
