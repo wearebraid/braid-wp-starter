@@ -7,42 +7,34 @@ function braid_starter_scripts()
 {
     // each time the below files are saved, the version fingerprint changes to bust cache
     // $clientCSSversion = filemtime(get_template_directory() . '/' . $site_css);
-    $styleCSSVersion = filemtime(get_template_directory() . '/dist/build.css');
-
     // default style.css which has a normalize
-    
-    wp_enqueue_style(
-        'theme-fonts',
-        'https://fonts.googleapis.com/css?family=Open+Sans:300,400,700',
-        [],
-        $styleCSSVersion
-    );
-    wp_enqueue_style(
-        'braid-starter-style',
-        get_template_directory_uri() . '/dist/build.css',
-        ['theme-fonts'],
-        $styleCSSVersion
-    );
 
     wp_enqueue_script('fontawesome-5', 'https://use.fontawesome.com/releases/v5.0.6/js/all.js');
+    
+    $manifestRequires = ['jquery', 'fontawesome-5'];
+    $manifestIgnore = ['external_use.css']; // IGNORE THESE CHUNKS FROM MANIFEST
     
     ob_start();
     include dirname(__FILE__).'/../dist/manifest.json';
     $manifest = ob_get_clean();
-    $manifestRequires = ['jquery', 'fontawesome-5'];
     $registeredScripts = [];
-    foreach (json_decode($manifest) as $manifestFile) {
+    foreach (json_decode($manifest) as $key => $manifestFile) {
+        if (in_array($key, $manifestIgnore)) {
+            continue;
+        }
         if (substr($manifestFile, -3) == '.js') {
             $chunk = explode('.', $manifestFile);
             $registeredScripts[] = 'site-script-' . $chunk[0];
             wp_register_script(
                 'site-script-' . $chunk[0],
-                get_template_directory_uri() . '/dist/' . $manifestFile,
+                $manifestFile,
                 $manifestRequires,
                 '1.0',
                 true
             );
             $manifestRequires = array('site-script-' . $chunk[0]);
+        } elseif (substr($manifestFile, -4) == '.css') {
+            wp_enqueue_style($key, $manifestFile, [], filemtime(get_template_directory() . '/dist/' . basename($manifestFile)));
         }
     }
 

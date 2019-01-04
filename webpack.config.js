@@ -1,12 +1,11 @@
 const webpack = require('webpack')
-let path = require('path')
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const path = require('path')
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
+const ManifestPlugin = require('webpack-manifest-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
-const autoprefixer = require('autoprefixer')
-let UglifyJsPlugin = require('uglifyjs-webpack-plugin')
-
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const FixStyleOnlyEntriesPlugin = require("webpack-fix-style-only-entries")
 
 const localUrl = 'http://local.braidwpstarter.com/'
 const publicPath = '/wp-content/themes/braid-wp-starter/'
@@ -15,13 +14,16 @@ function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
 
-const webpackData = {
-  entry: ['es6-promise/auto', './lib/js/app.js'],
+module.exports = (env, argv) => ({
+  entry: {
+    app: './lib/js/app.js',
+    // external_use: './lib/scss/external_use.scss', // EXAMPLE OF A SEPARATE SCSS COMPILED OUTPUT
+  },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: '[name].[chunkhash].js',
-    chunkFilename: '[id].[chunkhash].js',
-		publicPath: publicPath
+    filename: argv.mode !== 'production' ? '[name].js' : '[name].[chunkhash].js',
+    chunkFilename: argv.mode !== 'production' ? '[name].js' : '[name].[chunkhash].js',
+    publicPath: publicPath
   },
   resolve: {
     extensions: ['.js', '.vue', '.json'],
@@ -30,18 +32,47 @@ const webpackData = {
       '@': resolve('src')
     }
   },
+  devtool: argv.mode !== 'production' ? 'source-map' : false,
   module: {
     rules: [
       {
-        test: /\.scss$/,
-        use: ExtractTextPlugin.extract({
-          use: [
-            {loader: 'css-loader', options: { sourceMap: true, autoprefixer: true }},
-            {loader: 'postcss-loader', options: { sourceMap: true }},
-            {loader: 'sass-loader', options: { sourceMap: true }}
-          ],
-          fallback: 'style-loader'
-        })
+        test: /\.(sa|sc|c)ss$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: { 
+              sourceMap: argv.mode !== 'production'
+            },
+          },
+          {
+            loader: 'postcss-loader',
+            options: { 
+              sourceMap: argv.mode !== 'production',
+              plugins: () => [require('autoprefixer')({
+                'browsers': ['> 1%', 'last 2 versions']
+              })],
+            },
+          },
+          {
+            loader: 'sass-loader',
+            options: { 
+              sourceMap: argv.mode !== 'production',
+              plugins: () => [require('autoprefixer')({
+                'browsers': ['> 1%', 'last 2 versions']
+              })],
+            },
+          },
+          {
+            loader: 'sass-resources-loader',
+            options: {
+              resources: [
+                './lib/scss/utilities/_variables.scss',
+                './lib/scss/utilities/_custom-mixins.scss'
+              ],
+            },
+          },
+        ],
       },
       {
         test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
@@ -53,129 +84,33 @@ const webpackData = {
       {
         test: /\.vue$/,
         loader: 'vue-loader',
-        options: {
-          loaders: {
-            'scss': [
-              'vue-style-loader',
-              'css-loader',
-              'sass-loader',
-              {
-                loader: 'sass-resources-loader',
-                options: {
-                  resources: [
-                    './lib/scss/utilities/_variables.scss',
-                    './lib/scss/utilities/_custom-mixins.scss'
-                  ]
-                },
-              }
-            ],
-            'sass': [
-              'vue-style-loader',
-              'css-loader',
-              {
-                loader: 'sass-loader',
-                options: {
-                  indentedSyntax: true
-                }
-              },
-              {
-                loader: 'sass-resources-loader',
-                options: {
-                  resources: [
-                    './lib/scss/utilities/_variables.scss',
-                    './lib/scss/utilities/_custom-mixins.scss'
-                  ]
-                },
-              }
-            ]
-          }
-        }
-      },
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        loader: 'babel-loader'
       }
     ]
   },
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        vendors: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendor',
+          chunks: 'all',
+        }
+      },
+    }
+  },
   plugins: [
-    new CleanWebpackPlugin('./dist', {
-      root: __dirname,
-      verbose: true,
-      dry: false
+    new FixStyleOnlyEntriesPlugin(),
+    new VueLoaderPlugin(),
+    new ManifestPlugin({ publicPath: `${publicPath}dist/` }),
+    new CleanWebpackPlugin('./dist', { root: __dirname, dry: false }),
+    new MiniCssExtractPlugin({
+      filename: '[name].css',
+      chunkFilename: '[name].css',
     }),
-    function () {
-      this.plugin('done', stats => {
-        require('fs').writeFileSync(
-          path.join(__dirname, './dist/manifest.json'),
-          JSON.stringify(stats.toJson().entrypoints.main.assets)
-        )
-      })
-    },
-    new ExtractTextPlugin('build.css'),
-    new webpack.LoaderOptionsPlugin({
-      minimize: process.argv.includes('-p'),
-      options: {
-        postcss: [autoprefixer]       
-      }
-    }),
-    new webpack.HashedModuleIdsPlugin(),
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor',
-      minChunks: function (module, count) {
-        return (
-          module.resource &&
-          /\.js$/.test(module.resource) &&
-          module.resource.indexOf(
-            path.join(__dirname, 'node_modules')
-          ) === 0
-        )
-      }
-    }),
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'manifest',
-      chunks: ['vendor']
-    })
-  ]
-}
-
-if (process.env.NODE_ENV === 'production') {
-  webpackData.plugins.push(
-    new webpack.optimize.UglifyJsPlugin({
-      sourceMap: true,
-      uglifyOptions: { ecma: 8 },
-    })
-  )
-} else {
-  webpackData.devtool = 'inline-source-map'
-  webpackData.plugins.push(
     new BrowserSyncPlugin({
       host: 'localhost',
       proxy: localUrl,
-      files: [
-        {
-          match: [
-            '**/*.php'
-          ],
-          fn: function (event, file) {
-            if (event === "change") {
-              const bs = require('browser-sync').get('bs-webpack-plugin');
-              bs.reload();
-            }
-          }
-        }
-      ]
-    },
-      {
-        injectCss: true
-      })
-  )
-}
-
-if (process.argv.includes('analyze')) {
-  webpackData.plugins.push(
-    new BundleAnalyzerPlugin()
-  )
-}
-
-module.exports = webpackData
+      files: ['**/*.php']
+    }, { injectCss: true } )
+  ],
+});
