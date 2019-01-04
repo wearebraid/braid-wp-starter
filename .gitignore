@@ -1,4 +1,5 @@
 # folders and files to be ignored by git
+.env
 node_modules/
 dist/
 

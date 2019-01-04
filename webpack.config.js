@@ -1,16 +1,5 @@
 /**
- * Local Parameters
- */
-
-const localDomain = 'local.braidwpstarter.com'
-const secure = false
-const entryPoints = {
-  app: './lib/js/app.js',
-  // external_use: './lib/scss/external_use.scss', // EXAMPLE OF A SEPARATE SCSS COMPILED OUTPUT
-}
-
-/**
- * You should not need to modify anything below here unless you need a custom build config
+ * DEPENDENCIES
  */
 
 const webpack = require('webpack')
@@ -21,6 +10,7 @@ const ManifestPlugin = require('webpack-manifest-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const FixStyleOnlyEntriesPlugin = require("webpack-fix-style-only-entries")
 const WriteFilePlugin = require('write-file-webpack-plugin')
+require('dotenv').config()
 
 function currentDir () {
   const dir = __dirname.split('/')
@@ -31,12 +21,25 @@ function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
 
-const protocol = secure ? 'https://' : 'http://'
-const publicPath = `/wp-content/themes/${currentDir()}/`
-const buildPath = 'dist'
-const localUrl = `${protocol}${localDomain}`
-const devPort = 5000
+/**
+ * Local Parameters
+ */
 
+const localDomain = process.env.LOCAL_DOMAIN || 'localhost'
+const secure = process.env.SECURE || false
+const protocol = secure ? 'https://' : 'http://'
+const devPort = process.env.PORT || 5000
+const buildPath = process.env.BUILD_PATH || 'dist'
+const entryPoints = process.env.ENTRY_POINTS ?
+  JSON.parse(process.env.ENTRY_POINTS) :
+  { app: './lib/js/app.js' }
+
+const publicPath = `/wp-content/themes/${currentDir()}/`
+const localUrl = `${protocol}${localDomain}`
+
+/**
+ * You should not need to modify anything below here unless you need a custom build config
+ */
 module.exports = (env, argv) => ({
   entry: entryPoints,
   output: {
