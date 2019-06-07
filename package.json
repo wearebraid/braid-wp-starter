@@ -1,41 +1,58 @@
 {
   "name": "braidstarter",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A Starter WordPress Theme for Braid",
-  "main": "index.js",
+  "main": "./lib/js/app.js",
+  "directories": {
+    "lib": "lib"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "npm run dev",
+    "dev": "webpack-dev-server --mode development --hide-modules --hot",
+    "build": "webpack --mode production --hide-modules --progress",
+    "analyze": "webpack --mode production --hide-modules --progress --define analyze"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wearebraid/braid-wp-starter.git"
   },
   "author": "Braid",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wearebraid/braid-wp-starter/issues"
+  },
+  "homepage": "https://github.com/wearebraid/braid-wp-starter#readme",
   "devDependencies": {
-    "babel-core": "^6.26.0",
-    "browser-sync": "^2.18.13",
-    "font-awesome": "^4.7.0",
-    "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^3.1.1",
-    "gulp-babel": "^7.0.0",
-    "gulp-browserify": "^0.5.1",
-    "gulp-clean": "^0.3.2",
-    "gulp-clean-css": "^2.4.0",
-    "gulp-concat": "^2.6.1",
-    "gulp-concat-css": "^2.3.0",
-    "gulp-cssnano": "^2.1.2",
-    "gulp-jshint": "^2.0.4",
-    "gulp-livereload": "^3.8.1",
-    "gulp-notify": "^2.2.0",
-    "gulp-plumber": "^1.1.0",
-    "gulp-rename": "^1.2.2",
-    "gulp-sass": "^2.3.2",
-    "gulp-sourcemaps": "^2.6.1",
-    "gulp-uglify": "^2.1.2",
-    "gulp-watch": "^4.3.10",
-    "jquery-lazy": "^1.7.7",
-    "jshint": "^2.9.5",
-    "jshint-stylish": "^2.2.1",
-    "moment": "^2.18.1",
-    "slick-carousel": "^1.7.1",
-    "slick-carousel-browserify": "^1.6.12",
-    "underscore": "^1.8.3"
+    "@babel/core": "^7.4.0",
+    "@babel/preset-env": "^7.4.2",
+    "babel-loader": "^8.0.5",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.2.0"
+  },
+  "dependencies": {
+    "autoprefixer": "^9.4.4",
+    "browser-sync": "^2.26.3",
+    "browser-sync-webpack-plugin": "^2.2.2",
+    "clean-webpack-plugin": "^1.0.0",
+    "css-loader": "^2.1.0",
+    "cssnano": "^4.1.8",
+    "dotenv": "^6.2.0",
+    "extract-css-chunks-webpack-plugin": "^3.3.2",
+    "file-loader": "^3.0.1",
+    "node-sass": "^4.11.0",
+    "postcss-loader": "^3.0.0",
+    "sass-loader": "^7.1.0",
+    "sass-resources-loader": "^2.0.0",
+    "style-loader": "^0.23.1",
+    "url-loader": "^1.1.2",
+    "vue": "^2.5.21",
+    "vue-loader": "^15.4.2",
+    "vue-style-loader": "^4.1.2",
+    "vue-template-compiler": "^2.5.21",
+    "vuex": "^3.0.1",
+    "webpack-dev-server": "^3.1.14",
+    "webpack-fix-style-only-entries": "^0.1.0",
+    "webpack-manifest-plugin": "^2.0.4",
+    "write-file-webpack-plugin": "^4.5.0"
   }
 }
