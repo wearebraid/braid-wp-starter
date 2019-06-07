@@ -46,3 +46,6 @@ require_once(get_template_directory() . '/braid/braid-default-users.php');
 
 // Include Post Meta in Search results
 require_once(get_template_directory() . '/braid/braid-search.php');
+
+// Adds Braid WP CLI commands for extended functionality
+require_once(get_template_directory() . '/braid/braid-cli.php');
