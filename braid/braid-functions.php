@@ -49,3 +49,6 @@ require_once(get_template_directory() . '/braid/braid-search.php');
 
 // Adds Braid WP CLI commands for extended functionality
 require_once(get_template_directory() . '/braid/braid-cli.php');
+
+// Code for managing different deployment environments
+require_once(get_template_directory() . '/braid/braid-environments.php');
