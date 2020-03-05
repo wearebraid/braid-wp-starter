@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 $braid_users = [
     [
@@ -24,6 +24,16 @@ $braid_users = [
     [
         'user_name' => 'Braid_Justin',
         'user_email' => 'justin@wearebraid.com',
+        'role' => 'administrator'
+    ],
+    [
+        'user_name' => 'Braid_Ellinger',
+        'user_email' => 'cellinger@wearebraid.com',
+        'role' => 'administrator'
+    ],
+    [
+        'user_name' => 'Braid_Sasha',
+        'user_email' => 'sasha@wearebraid.com',
         'role' => 'administrator'
     ],
 ];
