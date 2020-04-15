@@ -10,7 +10,7 @@ function braid_starter_scripts()
     // default style.css which has a normalize
 
     wp_enqueue_script('fontawesome-5', 'https://use.fontawesome.com/releases/v5.0.6/js/all.js');
-    
+
     $manifestRequires = ['jquery', 'fontawesome-5'];
 
     /**
@@ -34,7 +34,7 @@ function braid_starter_scripts()
                     $key,
                     $manifestFile,
                     $manifestRequires,
-                    '1.0',
+                    filemtime(get_template_directory() . '/dist/' . basename($manifestFile)),
                     true
                 );
                 $manifestRequires = array($key);
