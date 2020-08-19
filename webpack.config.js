@@ -142,7 +142,7 @@ module.exports = (env, argv) => ({
       }
     ]
   },
-  optimization: {
+  optimization: argv.mode === 'production' ? {
     splitChunks: {
       cacheGroups: {
         vendors: {
@@ -152,7 +152,7 @@ module.exports = (env, argv) => ({
         }
       },
     }
-  },
+  } : {},
   plugins: [
     new WriteFilePlugin({ test: /^(?!.*(hot)).*/ }),
     new FixStyleOnlyEntriesPlugin(),
