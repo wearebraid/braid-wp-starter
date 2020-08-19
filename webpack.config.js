@@ -94,18 +94,14 @@ module.exports = (env, argv) => ({
             loader: 'postcss-loader',
             options: { 
               sourceMap: true,
-              plugins: () => [require('autoprefixer')({
-                'browsers': ['> 1%', 'last 2 versions']
-              })],
+              plugins: () => [require('autoprefixer')],
             },
           },
           {
             loader: 'sass-loader',
             options: { 
               sourceMap: true,
-              plugins: () => [require('autoprefixer')({
-                'browsers': ['> 1%', 'last 2 versions']
-              })],
+              plugins: () => [require('autoprefixer')],
             },
           },
           {
