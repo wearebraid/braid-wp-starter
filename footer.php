@@ -23,9 +23,13 @@ global $cssextract;
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 
-<?php wp_footer(); ?>
-<?php echo $jsextract; ?>
-<?php echo $cssextract; ?>
+<?php
+	wp_footer();
+	echo $jsextract;
+	echo $cssextract;
+	$vite = new BraidVite(defined('BRAID_LOCAL_DEV') && BRAID_LOCAL_DEV);
+	echo $vite->vite('app.js');
+?>
 
 </body>
 </html>
