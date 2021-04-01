@@ -17,8 +17,8 @@ $braid_users = [
         'role' => 'administrator'
     ],
     [
-        'user_name' => 'Braid_CGeelhoed',
-        'user_email' => 'cgeelhoed@wearebraid.com',
+        'user_name' => 'Braid_Megan',
+        'user_email' => 'megan@wearebraid.com',
         'role' => 'administrator'
     ],
     [
