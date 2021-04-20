@@ -46,6 +46,6 @@
 		</nav><!-- #site-navigation -->
 	</header><!-- #masthead -->
 
-	<sample>Slot data here</sample>
+	<sample><p>Slot data here</p></sample>
 
 	<div id="content" class="site-content">

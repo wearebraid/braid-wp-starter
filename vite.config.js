@@ -10,13 +10,10 @@ const themeUrl = `/wp-content/themes/${basename(__dirname)}`
 export default defineConfig({
   plugins: [
     vue(),
-    // legacy({
-    //   targets: ['defaults', 'not IE 11']
-    // }),
     liveReload(themeDir+'/**/*.php')
   ],
   root: 'src',
-  base: themeUrl + '/dist/',
+  base: themeUrl + (process.env.NODE_ENV === 'production' ? '/dist/' : '/src/'),
   build: {
     // output dir for production build
     outDir: themeDir + '/dist',

@@ -2,7 +2,9 @@ import 'vite/dynamic-import-polyfill'
 import { createApp } from 'vue'
 
 import './app.scss'
-import './js/script'
+
+// UNCOMMENT THE SCRIPT BELOW IF YOU NEED jQUERY SCRIPTING
+// import './js/script'
 
 import Sample from './js/components/Sample.vue'
 
