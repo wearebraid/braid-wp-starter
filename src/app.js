@@ -6,16 +6,18 @@ import './app.scss'
 // UNCOMMENT THE SCRIPT BELOW IF YOU NEED jQUERY SCRIPTING
 // import './js/script'
 
-import Sample from './js/components/Sample.vue'
-import { VueGriddle } from '@braid/griddle'
+import Components from './js/includes/components'
 
 const el = document.getElementById('page')
 const siteData = window.siteData
 
-createApp({
-  template: el.innerHTML,
-  components: {
-    Sample,
-    Griddle: VueGriddle
-  }
-}).mount(el)
+// Create App
+const app = createApp({
+  template: el.innerHTML
+})
+
+// Use Global Components
+Components(app)
+
+// Mount App
+app.mount(el)
