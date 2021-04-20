@@ -4,9 +4,14 @@
     100%{opacity:1}
 }
 
+html, body {
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 body {
     height: 100%;
-    min-height: 100vh;
     overflow-x: hidden;
     animation: fadeIn .75s ease-in-out;
     background: url('./img/logo-trans.svg') center center no-repeat;
