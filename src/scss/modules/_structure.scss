@@ -21,3 +21,7 @@ img {
     background: $primary;
     color: white;
 }
+
+.container {
+    @include container();
+}

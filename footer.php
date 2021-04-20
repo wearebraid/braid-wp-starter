@@ -21,6 +21,7 @@ global $cssextract;
 			&copy; <?php echo date("Y"); ?> - All rights reserved.
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
+	<Griddle></Griddle>
 </div><!-- #page -->
 
 <?php

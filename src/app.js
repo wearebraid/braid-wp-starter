@@ -7,6 +7,7 @@ import './app.scss'
 // import './js/script'
 
 import Sample from './js/components/Sample.vue'
+import { VueGriddle } from '@braid/griddle'
 
 const el = document.getElementById('page')
 const siteData = window.siteData
@@ -14,6 +15,7 @@ const siteData = window.siteData
 createApp({
   template: el.innerHTML,
   components: {
-    Sample
+    Sample,
+    Griddle: VueGriddle
   }
 }).mount(el)

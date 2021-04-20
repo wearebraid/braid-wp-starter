@@ -39,6 +39,14 @@ export default defineConfig({
     // if changed match here /templates/html/vite.php
   },
 
+  css: {
+    preprocessorOptions: {
+      scss: { 
+        additionalData: `@import "./src/scss/_global.scss";`
+      },
+    },
+  },
+
   // required for in-browser template compilation
   // https://v3.vuejs.org/guide/installation.html#with-a-bundler
   resolve: {
