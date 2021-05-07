@@ -17,9 +17,18 @@ class BraidVite {
 
   public function vite($entry)
   {
+    return $this->vite_js($entry) . $this->vite_css($entry);
+  }
+
+  public function vite_js($entry)
+  {
     return $this->jsTag($entry) .
-      $this->jsPreloadImports($entry) .
-      $this->cssTag($entry);
+      $this->jsPreloadImports($entry);
+  }
+
+  public function vite_css($entry)
+  {
+    return $this->cssTag($entry);
   }
 
   protected function jsTag($entry)

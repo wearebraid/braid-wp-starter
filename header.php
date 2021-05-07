@@ -9,6 +9,9 @@
  * @package braid-starter
  */
 
+global $vite;
+$vite = new BraidVite( defined( 'BRAID_LOCAL_DEV' ) && BRAID_LOCAL_DEV );
+
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
@@ -17,6 +20,7 @@
 <link rel="profile" href="http://gmpg.org/xfn/11">
 
 <?php wp_head(); ?>
+<?php echo $vite->vite_css( 'app.js' ); ?>
 </head>
 
 <body <?php body_class(); ?>>

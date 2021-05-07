@@ -9,6 +9,7 @@
  * @package braid-starter
  */
 
+global $vite;
 global $jsextract;
 global $cssextract;
 
@@ -28,8 +29,7 @@ global $cssextract;
 	wp_footer();
 	echo $jsextract;
 	echo $cssextract;
-	$vite = new BraidVite(defined('BRAID_LOCAL_DEV') && BRAID_LOCAL_DEV);
-	echo $vite->vite('app.js');
+	echo $vite->vite_js( 'app.js' );
 ?>
 
 </body>
