@@ -6,25 +6,25 @@
 
 function theme_custom_post_types() {
 	$custom_post_types = array(
-		'team_member' => array(
-			'singular'  => 'Team Member',
-			'plural'    => 'Team Members',
-			'menu_icon' => 'dashicons-groups',
-			'overrides' => array(),
-			'labels'    => array(),
-		),
+		// 'team_member' => array(
+		// 	'singular'  => 'Team Member',
+		// 	'plural'    => 'Team Members',
+		// 	'menu_icon' => 'dashicons-groups',
+		// 	'overrides' => array(),
+		// 	'labels'    => array(),
+		// ),
 	);
 
 	$taxonomies = array(
-		'team-category' => array(
-			'post_types' => array( 'team_member' ),
-			'singular'   => 'Category',
-			'plural'     => 'Categories',
-			'overrides'  => array(
-				'hierarchical' => true,
-			),
-			'labels'     => array(),
-		),
+		// 'team-category' => array(
+		// 	'post_types' => array( 'team_member' ),
+		// 	'singular'   => 'Category',
+		// 	'plural'     => 'Categories',
+		// 	'overrides'  => array(
+		// 		'hierarchical' => true,
+		// 	),
+		// 	'labels'     => array(),
+		// ),
 	);
 
 	foreach ( $custom_post_types as $pt => $data ) {

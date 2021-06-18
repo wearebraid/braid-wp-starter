@@ -22,7 +22,7 @@ global $cssextract;
 			&copy; <?php echo gmdate( 'Y' ); ?> - All rights reserved.
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
-	<Griddle></Griddle>
+	<global-events></global-events>
 </div><!-- #page -->
 
 <?php

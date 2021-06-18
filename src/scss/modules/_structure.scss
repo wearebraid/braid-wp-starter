@@ -1,33 +1,86 @@
 @keyframes fadeIn{
-    0%{opacity:0}
-    50%{opacity:0}
-    100%{opacity:1}
+  0%{opacity:0}
+  50%{opacity:0}
+  100%{opacity:1}
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+
+  * {
+     box-sizing: inherit;
+  }
 }
 
 html, body {
-    min-height: 100%;
-    margin: 0;
-    padding: 0;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  &[data-scroll-lock="true"] {
+    overflow: hidden;
+
+    body {
+      overflow: hidden;
+    }
+  }
 }
 
 body {
-    height: 100%;
-    overflow-x: hidden;
-    animation: fadeIn .75s ease-in-out;
-    background: url('./img/logo-trans.svg') center center no-repeat;
+  height: 100%;
+  overflow-x: hidden;
+  animation: fadeIn .75s ease-in-out;
+  background: url('./img/logo-trans.svg') center center no-repeat;
 }
 
 img {
-    max-width: 100%;
-    display: block;
+  max-width: 100%;
+  display: block;
 }
 
 // highlight color
 ::selection {
-    background: $primary;
-    color: white;
+  background: $gray-d;
+  color: white;
 }
 
 .container {
-    @include container();
+  @include container();
+}
+
+// braid x-ray menu bar styles
+#wp-admin-bar-xray_toggle {
+  user-select: none;
+
+  .ab-item {
+    display: flex !important;
+    align-items: center;
+    cursor: pointer;
+  }
+  .xray-toggle {
+    &::before {
+      content: 'Off';
+      box-sizing: border-box;
+      display: block;
+      border-radius: 999em;
+      margin-top: auto;
+      margin-bottom: auto;
+      margin-left: 0.5em;
+      background: crimson;
+      width: 3em;
+      height: 1.5em;
+      line-height: 1.5em;
+      text-align: center;
+      color: #fff;
+    }
+
+    &[data-active="true"] {
+      &::before {
+        content: 'On';
+        background: green;
+      }
+    }
+  }
 }

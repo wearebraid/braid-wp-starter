@@ -1,25 +1,20 @@
 <?php
-/**
- * The template for displaying all pages
- *
- * Template Name: Home Page Template
- */
+/*
+	Template Name: Home Page Template
+	Template Post Type: page
+*/
 
 get_header(); ?>
 
-<div id="primary" class="content-area">
-	<main id="main" class="site-main" role="main">
+	<div id="primary" class="content-area">
+		<main id="main" class="site-main" role="main">
 
-		<?php
-		while ( have_posts() ) :
-			the_post();
-			?>
+			<?php get_template_part( 'braid/template-parts/flexible/flexible', 'block-loop' ); ?>
 
-		<?php endwhile; // End of the loop. ?>
+		</main><!-- #main -->
+	</div><!-- #primary -->
 
-	</main><!-- #main -->
-</div><!-- #primary -->
 
 <?php
-
 get_footer();
+

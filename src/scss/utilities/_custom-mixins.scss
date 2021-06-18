@@ -1,85 +1,65 @@
-@mixin mobile-small {
-    @media (max-width: #{$mobile-small - 1px}) {
-        @content;
-    }
+// vue deep selector syntax mixin
+// -----------------------------------------------------------------------------
+@mixin deep($selector: '') {
+  :deep(#{$selector}) {
+    @content;
+  }
 }
 
-@mixin mobile {
-    @media (max-width: #{$tablet-width - 1px}) {
-        @content;
-    }
-}
-
-@mixin tablet {
-    @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-small - 1px}) {
-        @content;
-    }
-}
-
-@mixin tablet-down {
-    @media (max-width: #{$desktop-small - 1px}) {
-        @content;
-    }
-}
-
-@mixin tablet-up {
-    @media (min-width: #{$tablet-width}) {
-        @content;
-    }
-}
-
-@mixin desktop {
-    @media (min-width: #{$desktop-small}) {
-        @content;
-    }
-}
-
-@mixin desktop-large {
-    @media (min-width: #{$desktop-large}) {
-        @content;
-    }
-}
-
-@mixin desktop-nav {
-    @media (min-width: #{$desktop-nav-start}) {
-        @content;
-    }
-}
-
-@mixin mobile-nav {
-    @media (max-width: #{$desktop-nav-start - 1px}) {
-        @content;
-    }
+// Font smoothing
+// -----------------------------------------------------------------------------
+@mixin font-smoothing {
+  font-smooth: always;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
 }
 
 
-@mixin triangle($dir, $size, $color) {
-    border: $size transparent solid;
+// Skeleton text.
+// You're thinking, are all those !important's really necessary? Well, 🤷‍ , yeah
+// I mean they kinda are...deal with it.
+// -----------------------------------------------------------------------------
 
-    @if ($dir == "top" or $dir == "up") {
-        border-bottom-color: $color;
-    }
-    @else if ($dir == "right" or $dir == "after") {
-        border-left-color: $color;
-    }
-    @else if ($dir == "bottom" or $dir == "down") {
-        border-top-color: $color;
-    }
-    @else if ($dir == "left" or $dir == "before") {
-        border-right-color: $color;
-    }
+@keyframes skeleton {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 100% 0%;
+  }
 }
 
-@mixin row {
-    max-width: $row-width;
-    margin-left: auto;
-    margin-right: auto;
+%skeleton {
+  animation: skeleton 1s linear infinite !important;
+  background-color: $gray-d !important;
+  background-size: 300% 100% !important;
+  background-repeat: repeat-x !important;
+  background-position: 0% 0%;
+  background-image: linear-gradient(to right, $gray-d, $gray-d 33%, $gray 50%, $gray-d 66%, $gray-d) !important;
+  display: block;
+  color: transparent !important;
+
+  &--inline {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 1.5;
+    height: 1em;
+  }
 }
 
-@mixin clearfix {
-    &:after {
-        content: "";
-        display: table;
-        clear: both;
-    }
+// Defines the default padding on flexible block page stripes,
+// Should be overridden on a block by block basis if needed
+// -----------------------------------------------------------------------------
+%flexi-padding {
+  padding-top: 4em;
+  padding-bottom: 4em;
+
+  @media (min-width: bp(m)) {
+    padding-top: 6em;
+    padding-bottom: 6em;
+  }
+  @media (min-width: bp(l)) {
+    padding-top: 8em;
+    padding-bottom: 8em;
+  }
 }

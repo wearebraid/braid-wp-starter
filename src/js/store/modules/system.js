@@ -2,13 +2,20 @@
  * Setup the initial state for module.
  */
 const state = () => ({
-  test: 'test'
+  lockScroll: false,
+  gridIsVisible: false
 })
 
 /**
  * Setup getters, use these like computed properties for the store module.
  */
 const getters = {
+  lockScroll (state) {
+    return state.lockScroll
+  },
+  gridIsVisible (state) {
+    return state.gridIsVisible
+  }
 }
 
 /**
@@ -22,6 +29,12 @@ const actions = {
  * _no side effects_.
  */
 const mutations = {
+  setLockScroll (state, value) {
+    state.lockScroll = value
+  },
+  setGridIsVisible (state, payload) {
+    state.gridIsVisible = payload
+  }
 }
 
 /**

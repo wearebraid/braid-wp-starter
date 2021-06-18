@@ -59,5 +59,65 @@ function my_acf_admin_head() {
 	</style>
 	<?php
 }
-
 add_action( 'acf/input/admin_head', 'my_acf_admin_head' );
+
+/**
+ * when using the Braid visual ACF menu plugin, provide images at the following path
+ */
+function custom_flexible_images_path() {
+	return '/src/img/flexible';
+}
+add_filter( 'braid.flexible_visual_menu.images_path', 'custom_flexible_images_path' );
+
+/**
+ * Given a collection of layouts and an index from our page builder
+ * get the original (not clone instance) group ID for ACF to operate with
+ */
+function get_original_row_key_from_content( $content, $index ) {
+	if (
+		( $content && $content['layouts'] && count( $content['layouts'] ) ) &&
+		( $content && $content['value'] && count( $content['value'] ) )
+	) {
+		$layout = $content['value'][ $index ]['acf_fc_layout'];
+		$key    = false;
+		foreach ( $content['layouts'] as $l ) {
+			if (
+				$l['name'] === $layout &&
+				$l['sub_fields'] &&
+				count( $l['sub_fields'] )
+			) {
+				foreach ( $l['sub_fields'] as $f ) {
+					if ( $f['_clone'] ) {
+						$clone_key = $f['_clone'];
+						$key       = get_field_object( $clone_key )['clone'][0];
+						break;
+					}
+				}
+				break;
+			}
+		}
+		return $key;
+	}
+	return false;
+}
+
+/**
+ * Adds a toggle for the griddle x-ray layer to the menu bar
+ */
+function xray_adminbar_menu() {
+	global $wp_admin_bar;
+
+	if ( ! is_user_logged_in() || ! is_admin_bar_showing() || is_admin() ) {
+		return;
+	}
+
+	$current_value = isset( $_COOKIE['et-xray'] ) ? $_COOKIE['et-xray'] : false;
+
+	$wp_admin_bar->add_menu(
+		array(
+			'id'    => 'xray_toggle',
+			'title' => 'X-Ray: <span class="xray-toggle" data-active="' . $current_value . '"></span>',
+		)
+	);
+}
+add_action( 'admin_bar_menu', 'xray_adminbar_menu', 99 );
