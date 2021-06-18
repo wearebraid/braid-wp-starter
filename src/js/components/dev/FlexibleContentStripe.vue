@@ -16,6 +16,7 @@
         {{ displayIndex }}) {{ label }}
         <div class="controls">
           <a
+            v-if="postEditLink"
             :href="postEditLink"
             target="_blank"
             title="Edit content in post"
@@ -34,7 +35,7 @@
             </svg>
           </a>
           <a
-            v-if="showFieldsLink"
+            v-if="showFieldsLink && fieldEditLink"
             :href="fieldEditLink"
             target="_blank"
             title="Edit field group"

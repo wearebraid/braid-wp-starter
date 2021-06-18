@@ -62,6 +62,42 @@ function my_acf_admin_head() {
 add_action( 'acf/input/admin_head', 'my_acf_admin_head' );
 
 /**
+ * ensure flexible rows are collapsed on post load
+ * and if we have target scroll to it and open it
+ */
+function acf_flexible_content_ux() {
+	?>
+	<script type="text/javascript">
+	(function($){
+		$(document).ready(function(){
+			$('.acf-flexible-content .layout').each(function( index ) {
+					$(this).addClass('-collapsed');
+				});
+			});
+
+			var urlParams = new URLSearchParams(window.location.search);
+			if (urlParams.has('target')) {
+				setTimeout(function() {
+					var values = urlParams.get('target').split(':');
+					var id = values[0];
+					var element = values[1];
+					var selector = '.layout[data-id="row-' + id + '"][data-layout="' + element + '"]'
+					var $target = $(selector);
+					$target.removeClass('-collapsed')
+					setTimeout(function() {
+						$('html, body').animate({
+								scrollTop: $target.offset().top - 100
+						}, 200);
+					}, 200);
+				}, 800);
+			}
+	})(jQuery);
+	</script>
+	<?php
+}
+add_action( 'acf/input/admin_head', 'acf_flexible_content_ux' );
+
+/**
  * when using the Braid visual ACF menu plugin, provide images at the following path
  */
 function custom_flexible_images_path() {
