@@ -1,4 +1,4 @@
-<?php 
+<?php
 //---
 // Custom Image Sizes
 // ---
@@ -16,7 +16,7 @@ add_image_size('mid-size', 750, 9999, false);
 // to prevent uploads folder from ballooning
 function braid_remove_default_image_sizes( $sizes) {
     unset( $sizes['medium'] );
-	unset( $sizes['medium_large'] );
+    unset( $sizes['medium_large'] );
     unset( $sizes['large'] );
     return $sizes;
 }

@@ -22,7 +22,7 @@ get_header(); ?>
                     while ( have_rows('content') ) : the_row();
                     ?>
                         <div class="flexi-content <?php echo get_row_layout(); ?>">
-                            <?php get_template_part('braid/template-parts/flexible', get_row_layout()); ?>
+                            <?php get_template_part('braid/template-parts/flexible/flexible', get_row_layout()); ?>
                         </div>
                     <?php
                     endwhile;
