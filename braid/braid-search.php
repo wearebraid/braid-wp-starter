@@ -11,15 +11,15 @@
  * http://codex.wordpress.org/Plugin_API/Filter_Reference/posts_join
  */
 function braid_search_join( $join ) {
-    global $wpdb;
+	global $wpdb;
 
-    if ( is_search() ) {    
-        $join .=' LEFT JOIN '.$wpdb->postmeta. ' ON '. $wpdb->posts . '.ID = ' . $wpdb->postmeta . '.post_id ';
-    }
-    
-    return $join;
+	if ( is_search() ) {
+		$join = $join . ' LEFT JOIN ' . $wpdb->postmeta . ' ON ' . $wpdb->posts . '.ID = ' . $wpdb->postmeta . '.post_id ';
+	}
+
+	return $join;
 }
-add_filter('posts_join', 'braid_search_join' );
+add_filter( 'posts_join', 'braid_search_join' );
 
 /**
  * Modify the search query with posts_where
@@ -27,15 +27,17 @@ add_filter('posts_join', 'braid_search_join' );
  * http://codex.wordpress.org/Plugin_API/Filter_Reference/posts_where
  */
 function braid_search_where( $where ) {
-    global $wpdb;
-   
-    if ( is_search() ) {
-        $where = preg_replace(
-            "/\(\s*".$wpdb->posts.".post_title\s+LIKE\s*(\'[^\']+\')\s*\)/",
-            "(".$wpdb->posts.".post_title LIKE $1) OR (".$wpdb->postmeta.".meta_value LIKE $1)", $where );
-    }
+	global $wpdb;
 
-    return $where;
+	if ( is_search() ) {
+		$where = preg_replace(
+			'/\(\s*' . $wpdb->posts . ".post_title\s+LIKE\s*(\'[^\']+\')\s*\)/",
+			'(' . $wpdb->posts . '.post_title LIKE $1) OR (' . $wpdb->postmeta . '.meta_value LIKE $1)',
+			$where
+		);
+	}
+
+		return $where;
 }
 add_filter( 'posts_where', 'braid_search_where' );
 
@@ -45,12 +47,12 @@ add_filter( 'posts_where', 'braid_search_where' );
  * http://codex.wordpress.org/Plugin_API/Filter_Reference/posts_distinct
  */
 function braid_search_distinct( $where ) {
-    global $wpdb;
+	global $wpdb;
 
-    if ( is_search() ) {
-        return "DISTINCT";
-    }
+	if ( is_search() ) {
+		return 'DISTINCT';
+	}
 
-    return $where;
+	return $where;
 }
 add_filter( 'posts_distinct', 'braid_search_distinct' );

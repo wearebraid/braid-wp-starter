@@ -19,7 +19,7 @@ global $cssextract;
 
 	<footer id="colophon" class="site-footer" role="contentinfo">
 		<div class="site-info">
-			&copy; <?php echo date("Y"); ?> - All rights reserved.
+			&copy; <?php echo gmdate( 'Y' ); ?> - All rights reserved.
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 	<Griddle></Griddle>
