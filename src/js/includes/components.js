@@ -6,7 +6,7 @@ import GlobalEvents from '../components/dev/GlobalEvents.vue'
 import FlexibleContentStripe from '../components/dev/FlexibleContentStripe.vue'
 
 // Elements
-import Sample from '../components/Sample.vue'
+import Welcome from '../components/Welcome.vue'
 
 // Register Components
 export default (app) => {
@@ -18,5 +18,5 @@ export default (app) => {
   app.component('FlexibleContentStripe', FlexibleContentStripe)
 
   // Elements
-  app.component('Sample', Sample)
+  app.component('Welcome', Welcome)
 }

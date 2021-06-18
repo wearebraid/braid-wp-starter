@@ -18,9 +18,6 @@ global $cssextract;
 	</div><!-- #content -->
 
 	<footer id="colophon" class="site-footer" role="contentinfo">
-		<div class="site-info">
-			&copy; <?php echo gmdate( 'Y' ); ?> - All rights reserved.
-		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 	<global-events></global-events>
 </div><!-- #page -->

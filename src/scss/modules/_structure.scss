@@ -13,6 +13,7 @@
 }
 
 html, body {
+  height: 100%;
   min-height: 100%;
   margin: 0;
   padding: 0;
@@ -32,7 +33,6 @@ body {
   height: 100%;
   overflow-x: hidden;
   animation: fadeIn .75s ease-in-out;
-  background: url('./img/logo-trans.svg') center center no-repeat;
 }
 
 img {
@@ -48,6 +48,18 @@ img {
 
 .container {
   @include container();
+}
+
+// use flex to stick the footer to the bottom of the page
+#page {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  #content {
+    flex-grow: 1;
+  }
 }
 
 // braid x-ray menu bar styles
