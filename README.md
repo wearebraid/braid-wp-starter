@@ -23,6 +23,14 @@ rm -rf .git/
 npm install
 ```
 
+## Linting
+The starter theme comes with configuration files that will tell your linters to use WordPress standards for `.php` files. Javascript files are excluded from the WordPress coding standards as most JavaScript for a project using this theme will be in the form of Vue components. You should have the following linters enabled in your editor:
+
+- [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+- [PHPCS](https://marketplace.visualstudio.com/items?itemName=ikappas.phpcs)
+- [EditorConfig](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig)
+- [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur)
+
 ## Development
 
 Add `define( 'BRAID_LOCAL_DEV', true );` to your wp-config.php
@@ -72,10 +80,10 @@ In many cases it's useful to quickly get your data into a Vue component for fron
 From your PHP template you'll need to fetch any required data and provide it as props or slot content to your new Vue component. If you're passing a string value then you can supply prop values with `<?php echo $my_value; ?>` in your template. If you need to pass in an `Array`, `Object`, or content that contains full HTML markup then use the provided `vue_prop()` function to prepare the data.
 
 ```php
-<?php $my_php_object = get_sub_field('block_options'); ?>
+<?php $my_php_object = get_sub_field( 'block_options' ); ?>
 
 <my-component
-	:object-prop="<?php vue_prop($my_php_object); ?>"
+	:object-prop="<?php vue_prop( $my_php_object ); ?>"
 >
 </my-component>
 ```
