@@ -10,4 +10,4 @@
 /**
  * Import all Braid stuff
  */
-require get_template_directory() . '/braid/braid-functions.php';
+require get_template_directory() . '/braid/functions/braid-functions.php';

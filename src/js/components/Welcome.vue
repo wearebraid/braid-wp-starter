@@ -3,6 +3,23 @@
     <div class="container">
       <h1>{{ msg }}</h1>
       <slot />
+
+      <div class="help-buttons">
+        <a
+          class="button"
+          href="https://github.com/wearebraid/braid-wp-starter#readme"
+          target="_blank"
+        >
+          Braid Starter Readme
+        </a>
+        <a
+          class="button"
+          href="https://github.com/wearebraid/griddle/tree/vue3#readme"
+          target="_blank"
+        >
+          Griddle Documentation
+        </a>
+      </div>
     </div>
   </div>
 </template>
@@ -35,7 +52,7 @@ export default {
     min-width: 18.75em;
     min-height: 18.75em;
     background: url('../../img/logo-trans.svg') center center no-repeat;
-    opacity: 0.1;
+    opacity: 0.05;
   }
 
   .container {
@@ -56,6 +73,28 @@ export default {
       & + p {
         opacity: 0.8;
         margin-top: 0;
+      }
+    }
+  }
+
+  .help-buttons {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+
+    .button {
+      display: inline-block;
+      border: 1px solid #fff;
+      color: #fff;
+      padding: 0.5em 1em;
+      border-radius: 999em;
+      text-decoration: none;
+      margin: 1em 0.5em;
+
+      &:hover {
+        background: #fff;
+        color: #000;
       }
     }
   }

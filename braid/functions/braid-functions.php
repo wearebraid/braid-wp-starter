@@ -4,9 +4,9 @@
 // Make sure to require this file in functions.php...
 // require get_template_directory() . '/braid/braid-functions.php';
 
-require_once get_template_directory() . '/braid/braid-setup.php';
-require_once get_template_directory() . '/braid/class-braidthemeclicommands.php';
-require_once get_template_directory() . '/braid/class-braidvite.php';
+require_once get_template_directory() . '/braid/functions/braid-setup.php';
+require_once get_template_directory() . '/braid/functions/class-braidthemeclicommands.php';
+require_once get_template_directory() . '/braid/functions/class-braidvite.php';
 
 $modules = array(
 	'acf', // Advanced Custom Fields Customizations
@@ -27,5 +27,5 @@ $modules = array(
 );
 
 foreach ( $modules as $module ) {
-	require_once get_template_directory() . "/braid/braid-$module.php";
+	require_once get_template_directory() . "/braid/functions/braid-$module.php";
 }

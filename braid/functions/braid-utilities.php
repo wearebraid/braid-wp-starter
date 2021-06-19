@@ -77,3 +77,12 @@ function extract_inline_scripts_from_content_footer( $content ) {
 	return $content;
 }
 add_filter( 'the_content', 'extract_inline_scripts_from_content_footer' );
+
+// prep and echo PHP array / object for use as a vue prop
+function vue_prop( $object ) {
+	if ( is_array( $object ) || is_object( $object ) ) {
+		echo esc_attr( json_encode( $object, JSON_HEX_TAG ) );
+	} else {
+		echo "'" . htmlspecialchars( $object, ENT_QUOTES ) . "'";
+	}
+}
