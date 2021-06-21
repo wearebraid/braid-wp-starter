@@ -1,0 +1,65 @@
+// vue deep selector syntax mixin
+// -----------------------------------------------------------------------------
+@mixin deep($selector: '') {
+  :deep(#{$selector}) {
+    @content;
+  }
+}
+
+// Font smoothing
+// -----------------------------------------------------------------------------
+@mixin font-smoothing {
+  font-smooth: always;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+
+// Skeleton text.
+// You're thinking, are all those !important's really necessary? Well, 🤷‍ , yeah
+// I mean they kinda are...deal with it.
+// -----------------------------------------------------------------------------
+
+@keyframes skeleton {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 100% 0%;
+  }
+}
+
+%skeleton {
+  animation: skeleton 1s linear infinite !important;
+  background-color: $gray-d !important;
+  background-size: 300% 100% !important;
+  background-repeat: repeat-x !important;
+  background-position: 0% 0%;
+  background-image: linear-gradient(to right, $gray-d, $gray-d 33%, $gray 50%, $gray-d 66%, $gray-d) !important;
+  display: block;
+  color: transparent !important;
+
+  &--inline {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 1.5;
+    height: 1em;
+  }
+}
+
+// Defines the default padding on flexible block page stripes,
+// Should be overridden on a block by block basis if needed
+// -----------------------------------------------------------------------------
+%flexi-padding {
+  padding-top: 4em;
+  padding-bottom: 4em;
+
+  @media (min-width: bp(m)) {
+    padding-top: 6em;
+    padding-bottom: 6em;
+  }
+  @media (min-width: bp(l)) {
+    padding-top: 8em;
+    padding-bottom: 8em;
+  }
+}
