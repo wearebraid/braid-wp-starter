@@ -117,7 +117,6 @@ export default {
   },
   methods: {
     setVisible () {
-      console.log('setVisible')
       this.visible = true
     }
   }
