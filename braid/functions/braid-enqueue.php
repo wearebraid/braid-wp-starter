@@ -1,6 +1,6 @@
 <?php
 // ---
-// Enqueue styles and script from Gulp Output
+// Enqueue styles and scripts
 // ---
 
 function braid_starter_scripts() {

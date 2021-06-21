@@ -129,8 +129,7 @@ function braid_create_post_types( $post_type, $data, $enable_capabilities = fals
 	register_post_type($post_type, $args);
 }
 
-function braid_create_taxonomy($taxonomy, $data)
-{
+function braid_create_taxonomy($taxonomy, $data) {
 	$labels = array(
 		'name'                       => _x($data['plural'], 'cmstarter'),
 		'singular_name'              => _x($data['singular'], 'cmstarter'),
