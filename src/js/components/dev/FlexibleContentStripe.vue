@@ -2,6 +2,8 @@
   <div
     class="flexi-content-stripe"
     :data-grid-visible="grid"
+    :data-is-visible="visible"
+    v-observe.once.-200px="setVisible"
   >
     <slot />
 
@@ -85,6 +87,11 @@ export default {
       default: ''
     }
   },
+  data () {
+    return {
+      visible: false
+    }
+  },
   computed: {
     ...mapGetters({
       grid: 'system/gridIsVisible'
@@ -106,6 +113,12 @@ export default {
     },
     showFieldsLink () {
       return this.currentUser.toLowerCase().startsWith('braid_')
+    }
+  },
+  methods: {
+    setVisible () {
+      console.log('setVisible')
+      this.visible = true
     }
   }
 }

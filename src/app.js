@@ -1,4 +1,6 @@
 import 'vite/dynamic-import-polyfill'
+import 'intersection-observer'
+import ObserverDirective from './js/includes/ObserverDirective'
 import { createApp } from 'vue'
 import { store } from './js/store/index'
 
@@ -21,6 +23,7 @@ const app = createApp({
 // Use Globals
 Components(app)
 app.use(store)
+app.directive('observe', ObserverDirective)
 
 // Mount App
 app.mount(el)
