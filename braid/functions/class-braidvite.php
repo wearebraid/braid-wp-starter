@@ -60,7 +60,7 @@ class BraidVite {
 
 	protected function get_manifest() {
 		// @codingStandardsIgnoreStart
-		$content = file_get_contents( __DIR__ . '/../dist/manifest.json' );
+		$content = file_get_contents( __DIR__ . '/../../dist/manifest.json' );
 		// @codingStandardsIgnoreEnd
 		return json_decode( $content, true );
 	}
