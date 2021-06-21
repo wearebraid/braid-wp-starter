@@ -19,16 +19,6 @@
 // You're thinking, are all those !important's really necessary? Well, 🤷‍ , yeah
 // I mean they kinda are...deal with it.
 // -----------------------------------------------------------------------------
-
-@keyframes skeleton {
-  0% {
-    background-position: 0% 0%;
-  }
-  100% {
-    background-position: 100% 0%;
-  }
-}
-
 %skeleton {
   animation: skeleton 1s linear infinite !important;
   background-color: $gray-d !important;
