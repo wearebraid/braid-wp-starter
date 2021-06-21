@@ -1,5 +1,4 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
+import { createStore } from 'vuex';
 
 /**
  * Import each vuex module individually
@@ -9,10 +8,9 @@ import system from './modules/system'
 /**
  * Import each vuex plugin individually
  */
+// import plugin from './plugins/plugin-name'
 
-Vue.use(Vuex)
-
-export default new Vuex.Store({
+export const store = createStore({
   modules: {
     system
   },

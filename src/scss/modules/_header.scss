@@ -1,6 +1,7 @@
 a.skip-link {
   position: absolute;
   top: -999em;
+
   &:focus {
     top: 0;
     left: 50%;

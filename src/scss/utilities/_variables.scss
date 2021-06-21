@@ -1,30 +1,12 @@
-// breakpoints
-$mobile-small: 450px;
-$tablet-width: 680px;
-$desktop-small: 1030px;
-$desktop-large: 1350px;
-$desktop-nav-start: 940px;
-
 // colors
-$primary: #426972;
-$secondary: #454241;
-$tertiary: black;
-$error: #ff4d4d;
-$bodyCopy: #6d6a69;
-$headingCopy: $secondary;
-$link: $primary;
-$twitterColor: #1DA1F3;
-$instagramColor: #125688;
-$pinterestColor: #bd081c;
-$socialBg: #727272;
-$stroke: #ddd;
-$subFooterBg: #121212;
-
-// utility
-$nav-padding-desktop: 90px;
-$nav-padding-mobile: 56px;
-$mobile-padding: 20px;
-$row-width: 1100px;
+$dark: #000;
+$light: #fff;
+$gray-l: #F0F0F0;
+$grey-l: $gray-l;
+$gray: #919191;
+$grey: $gray;
+$gray-d: #707070;
+$grey-d: $gray-d;
 
 // fonts
 $serif: "Georgia", Cambria, Times New Roman, Times, serif;
