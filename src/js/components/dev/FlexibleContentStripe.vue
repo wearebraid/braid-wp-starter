@@ -15,7 +15,7 @@
         v-if="label"
         class="stripe-label"
       >
-        {{ displayIndex }}) {{ label }}
+        {{ displayIndex }}) {{ displayLabel }}
         <div class="controls">
           <a
             v-if="postEditLink"
@@ -98,6 +98,9 @@ export default {
     }),
     displayIndex () {
       return parseInt(this.index) + 1
+    },
+    displayLabel () {
+      return this.label.split('_').map((word) => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
     },
     fieldEditLink () {
       if (this.groupId) {
