@@ -70,7 +70,7 @@ function acf_flexible_content_ux() {
 	<script type="text/javascript">
 	(function($){
 		$(document).ready(function(){
-			$('.acf-flexible-content .layout').each(function( index ) {
+			$('.acf-flexible-content .values > .layout').each(function( index ) {
 					$(this).addClass('-collapsed');
 				});
 			});
