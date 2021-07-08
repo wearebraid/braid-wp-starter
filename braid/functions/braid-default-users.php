@@ -17,11 +17,6 @@ $braid_users = array(
 		'role'       => 'administrator',
 	),
 	array(
-		'user_name'  => 'Braid_Justin',
-		'user_email' => 'justin@wearebraid.com',
-		'role'       => 'administrator',
-	),
-	array(
 		'user_name'  => 'Braid_Ellinger',
 		'user_email' => 'cellinger@wearebraid.com',
 		'role'       => 'administrator',
