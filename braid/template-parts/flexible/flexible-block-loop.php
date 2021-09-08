@@ -1,6 +1,8 @@
 <?php
 // check if the flexible content field has rows of data
-if ( have_rows( 'content' ) ) :
+if (post_password_required()) :
+	echo '<div class="container">' . get_the_password_form() . '</div>';
+elseif ( have_rows( 'content' ) ) :
 	$index           = 0;
 	$current_post_id = get_the_ID();
 	$content_object  = get_field_object( 'content' );
