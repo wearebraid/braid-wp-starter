@@ -23,6 +23,7 @@ $modules = array(
 	'shortcodes', // Theme Shortcodes
 	'template-tags', // Custom template tags for this theme
 	'utilities', // General Utilities
+	'rest', // Adds some basic REST API endpoints and remove users endpoint for security
 	'wp-admin', // WP Admin Cleanup and Customizations
 );
 
